@@ -33,10 +33,24 @@ var minute: int
 
 ## Start the game time
 func start_time() -> void:
+	# Normal start time (could be changed)
 	week = 1
 	day = 0
 	hour = 8
 	minute = -1
+	
+	# Dawn (Uncomment to enable)
+	#week = 1
+	#day = 0
+	#hour = 6
+	#minute = 59
+	
+	# Dusk (Uncomment to enable)
+	#week = 1
+	#day = 0
+	#hour = 17
+	#minute = 59
+	
 	next_minute()
 
 
