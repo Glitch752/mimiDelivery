@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dx2pp7a303jmf"]
 
-[ext_resource type="Script" uid="uid://behesbyjhese8" path="res://scenes/intro.gd" id="1_ioskq"]
-[ext_resource type="Resource" uid="uid://ddf7fcxvrcfa8" path="res://dialogues/first_dialogue.tres" id="2_yjqpq"]
+[ext_resource type="Script" uid="uid://behesbyjhese8" path="res://scripts/intro.gd" id="1_ioskq"]
+[ext_resource type="Resource" uid="uid://ddf7fcxvrcfa8" path="res://dialogues/hello_dialogue.tres" id="2_yjqpq"]
 
 [node name="Intro" type="Control" unique_id=1368636052 node_paths=PackedStringArray("speaker_label", "speach_label", "next_button")]
 layout_mode = 3
