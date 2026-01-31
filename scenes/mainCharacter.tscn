@@ -39,7 +39,10 @@ size = Vector2(5, 5)
 
 [node name="Mimi" type="Node2D" unique_id=831696364]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 groups=["player"]]
+z_index = 1
+z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_0n537")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1838044837]
