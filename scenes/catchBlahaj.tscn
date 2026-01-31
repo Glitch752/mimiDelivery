@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://cfic0od4syqc"]
+
+[ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="1_npdls"]
+[ext_resource type="Script" uid="uid://pmq54c5plqsl" path="res://scenes/catch_blahaj.gd" id="1_r1xx1"]
+[ext_resource type="Texture2D" uid="uid://babkdhew4koa7" path="res://art/down.png" id="3_bj6kg"]
+
+[sub_resource type="Animation" id="Animation_r1xx1"]
+length = 0.75
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(117, 152), Vector2(322, 152), Vector2(117, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.36666667, 0.76666665),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bj6kg"]
+resource_name = "swim"
+loop_mode = 1
+step = 0.0333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(117, 152), Vector2(320, 152), Vector2(117, 152)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.001, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x8wjq"]
+_data = {
+&"RESET": SubResource("Animation_r1xx1"),
+&"swim": SubResource("Animation_bj6kg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u2nqs"]
+size = Vector2(36, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2itnl"]
+size = Vector2(5, 5)
+
+[node name="catchBlahaj" type="Control" unique_id=2061959431]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r1xx1")
+
+[node name="Panel" type="Panel" parent="." unique_id=1399213923]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 62.0
+offset_right = 350.0
+offset_bottom = 176.0
+
+[node name="Label2" type="Label" parent="." unique_id=1360168519]
+layout_mode = 0
+offset_left = 159.0
+offset_top = 65.0
+offset_right = 281.0
+offset_bottom = 88.0
+text = "Press P to catch"
+
+[node name="Label" type="Label" parent="." unique_id=1227847824]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 146.0
+offset_right = 226.0
+offset_bottom = 169.0
+theme_override_font_sizes/font_size = 11
+text = "+"
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=316984141 groups=["blahaj"]]
+position = Vector2(117, 152)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=1146835360]
+root_node = NodePath("../CollisionShape2D")
+libraries/ = SubResource("AnimationLibrary_x8wjq")
+autoplay = &"RESET"
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D" unique_id=154050566 groups=["blahaj"]]
+texture = ExtResource("1_npdls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" unique_id=1569915345]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_u2nqs")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=503733579]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1298169587]
+position = Vector2(219, 154)
+shape = SubResource("RectangleShape2D_2itnl")
+
+[node name="Down" type="Sprite2D" parent="." unique_id=465337566]
+position = Vector2(218.99998, 109.99999)
+scale = Vector2(0.030371103, 0.030371103)
+texture = ExtResource("3_bj6kg")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1179815124]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 54.0
+offset_right = 349.0
+offset_bottom = 61.0
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1779281890]
+wait_time = 5.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dx2pp7a303jmf"]
+
+[ext_resource type="Script" uid="uid://behesbyjhese8" path="res://scenes/intro.gd" id="1_ioskq"]
+[ext_resource type="Resource" uid="uid://ddf7fcxvrcfa8" path="res://dialogues/first_dialogue.tres" id="2_yjqpq"]
+
+[node name="Intro" type="Control" unique_id=1368636052 node_paths=PackedStringArray("speaker_label", "speach_label", "next_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ioskq")
+speaker_label = NodePath("Panel/SpeakerLabel")
+speach_label = NodePath("Panel/SpeachLabel")
+next_button = NodePath("Panel/NextButton")
+current_dialogue = ExtResource("2_yjqpq")
+
+[node name="Panel" type="Panel" parent="." unique_id=1364997350]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SpeakerLabel" type="Label" parent="Panel" unique_id=2023340929]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 28.0
+text = "Mimi"
+
+[node name="SpeachLabel" type="Label" parent="Panel" unique_id=158535227]
+custom_minimum_size = Vector2(550, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -275.0
+offset_top = -10.0
+offset_right = 275.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Hi. I am Mimi. This is a really really really really really really really really really really really really really really really really long dialogue."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+
+[node name="NextButton" type="Button" parent="Panel" unique_id=146050620]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -23.0
+offset_top = -36.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "^"
