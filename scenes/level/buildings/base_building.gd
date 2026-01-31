@@ -9,6 +9,8 @@ func _ready() -> void:
     hide_area.body_entered.connect(_on_body_entered)
     hide_area.body_exited.connect(_on_body_exited)
 
+    set_meta("building", true)
+
 func _on_body_entered(body: Node) -> void:
     if body.is_in_group("player"):
         var tween = create_tween()
