@@ -4,17 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://c6o77ns2pacnc" path="res://icon.svg" id="2_trh3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gff5m"]
-size = Vector2(128, 128)
+size = Vector2(5, 5)
 
-[node name="Node2D" type="Node2D" unique_id=831696364]
+[node name="Mimi" type="Node2D" unique_id=831696364]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976]
 script = ExtResource("1_0n537")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=969978444]
+scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_trh3t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=337916754]
 shape = SubResource("RectangleShape2D_gff5m")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2025200547]
+zoom = Vector2(20, 20)

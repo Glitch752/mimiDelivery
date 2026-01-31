@@ -5,6 +5,8 @@ extends Node2D
 @export_tool_button("Generate map from polygon")
 var generate_map_from_polygon = _generate_map_from_polygon
 
+@export var map_scale_factor: float = 1.0
+
 func _generate_map_from_polygon():
     var points: PackedVector2Array = []
     
@@ -17,7 +19,7 @@ func _generate_map_from_polygon():
                 var x = float(coords[0])
                 var y = float(coords[1])
                 # Flip y
-                points.append(Vector2(x, -y))
+                points.append(Vector2(x * map_scale_factor, -y * map_scale_factor))
         file.close()
     
     # Don't duplicate the first and last point
@@ -26,10 +28,19 @@ func _generate_map_from_polygon():
     
     print("Loaded %d points from polygon file" % points.size())
 
+
     # The hard part: prevent overlapping line segments by simplifying the polygon in those situations
     points = _remove_overlapping_segments(points)
 
     $%Landmass.polygon = points
+    # Copy to the collision
+    $%LandmassCollision.polygon = points
+
+    # Set UVs to a scaled version of the position
+    var uvs: PackedVector2Array = []
+    for point in points:
+        uvs.append(point * 0.01 / map_scale_factor)
+    $%Landmass.uv = uvs
 
 func _remove_overlapping_segments(points: PackedVector2Array) -> PackedVector2Array:
     if points.size() < 3:
