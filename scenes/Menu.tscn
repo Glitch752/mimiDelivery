@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://v6fk25c12w22" path="res://scripts/menu.gd" id="1_11y2r"]
 [ext_resource type="Texture2D" uid="uid://c2l5bm5sk6sdn" path="res://images/slide1.png" id="1_xdvgc"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="2_upctu"]
+[ext_resource type="Script" uid="uid://bc3euugkqwqxl" path="res://scripts/settings.gd" id="3_o0tnf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_upctu"]
 texture = ExtResource("1_xdvgc")
@@ -115,62 +116,56 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_upctu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1638724063]
-layout_mode = 1
+[node name="settings" type="Node" parent="." unique_id=576401349]
+script = ExtResource("3_o0tnf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="settings" unique_id=1262142072]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -44.5
-offset_right = 17.647095
-offset_bottom = 45.20587
+offset_left = -180.5
+offset_top = -63.0
+offset_right = 180.5
+offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.7, 1.7)
-theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=1846326836]
+[node name="Label" type="Label" parent="settings/VBoxContainer" unique_id=1376133934]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_lumdm")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_upctu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_11y2r")
-text = "Play"
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_upctu")
+theme_override_font_sizes/font_size = 40
+text = "Volume"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=240220314]
+[node name="Volume" type="HSlider" parent="settings/VBoxContainer" unique_id=1422017816]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_lumdm")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_o0tnf")
-theme_override_styles/hover = SubResource("StyleBoxFlat_jmdev")
-text = "Settings
-"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1088991998]
+[node name="Label2" type="Label" parent="settings/VBoxContainer" unique_id=17712465]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_lumdm")
-theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_b6cxs")
-theme_override_styles/hover = SubResource("StyleBoxFlat_aaywf")
-text = "Exit
-"
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_upctu")
+theme_override_font_sizes/font_size = 40
+text = "Resolution"
 
-[node name="Label" type="Label" parent="." unique_id=1554930494]
-layout_mode = 1
+[node name="OptionButton" type="OptionButton" parent="settings/VBoxContainer" unique_id=91710579]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "640x480"
+popup/item_3/id = 3
+
+[node name="mainMenu" type="Node" parent="." unique_id=1943803416]
+
+[node name="Label" type="Label" parent="mainMenu" unique_id=1554930494]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -189,6 +184,61 @@ theme_override_fonts/font = ExtResource("2_upctu")
 theme_override_font_sizes/font_size = 105
 text = "Mimi Delivery"
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="mainMenu" unique_id=1638724063]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -44.5
+offset_right = 17.647095
+offset_bottom = 45.20587
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
+theme_override_constants/separation = 10
+
+[node name="Button" type="Button" parent="mainMenu/VBoxContainer" unique_id=1846326836]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_lumdm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_upctu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_11y2r")
+text = "Play"
+
+[node name="Button2" type="Button" parent="mainMenu/VBoxContainer" unique_id=240220314]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_lumdm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o0tnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jmdev")
+text = "Settings
+"
+
+[node name="Button3" type="Button" parent="mainMenu/VBoxContainer" unique_id=1088991998]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_lumdm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b6cxs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaywf")
+text = "Exit
+"
+
+[connection signal="value_changed" from="settings/VBoxContainer/Volume" to="settings" method="_on_volume_value_changed"]
+[connection signal="item_selected" from="settings/VBoxContainer/OptionButton" to="settings" method="_on_option_button_item_selected"]
+[connection signal="pressed" from="mainMenu/VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="mainMenu/VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="mainMenu/VBoxContainer/Button3" to="." method="_on_exit_pressed"]

@@ -13,7 +13,9 @@ func _process(delta: float) -> void:
 
 func _on_settings_pressed() -> void:
 	print("settings pressed")
-	pass # Replace with function body.
+	$mainMenu/Label.visible = false
+	$mainMenu/VBoxContainer.visible = false
+	$settings/VBoxContainer.visible = true
 
 
 func _on_start_pressed() -> void:
