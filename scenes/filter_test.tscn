@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://xqxtf148tdf1"]
+
+[ext_resource type="PackedScene" uid="uid://c6isidgrp4hl7" path="res://scenes/time_display.tscn" id="1_7eycf"]
+
+[node name="FilterTest" type="Control" unique_id=1926353527]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=95310538]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 0.0666666, 1)
+
+[node name="TimeDisplay" parent="." unique_id=108378729 node_paths=PackedStringArray("day_night_filter_parent") instance=ExtResource("1_7eycf")]
+layout_mode = 1
+day_night_filter_parent = NodePath("..")
