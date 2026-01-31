@@ -41,7 +41,7 @@ offset_top = 1.0
 offset_right = 61.0
 offset_bottom = 24.0
 scale = Vector2(0.01, 0.01)
-text = "J8 HOTEL"
+text = "J67 HOTEL"
 label_settings = SubResource("LabelSettings_p2i55")
 
 [node name="CollisionShape2D" parent="HideArea" parent_id_path=PackedInt32Array(1367318042) index="0" unique_id=1992347408]

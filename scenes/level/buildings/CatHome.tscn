@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://3jtirvh8swdx"]
+
+[ext_resource type="PackedScene" uid="uid://ckb1p54uwlcj4" path="res://scenes/level/buildings/BaseBuilding.tscn" id="1_58vmr"]
+[ext_resource type="Script" uid="uid://c8s11dcpw0xmb" path="res://scripts/util/hot_reload_shader.gd" id="2_wvvxl"]
+[ext_resource type="Shader" uid="uid://blfhtp1bxr0ky" path="res://scripts/graphics/land.gdshader" id="3_msfml"]
+[ext_resource type="Texture2D" uid="uid://l2doq62mhmhn" path="res://art/map/cattower.png" id="4_58vmr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qf2h"]
+shader = ExtResource("3_msfml")
+shader_parameter/high_color = Color(0.7264, 0.8, 0.43199998, 1)
+shader_parameter/low_color = Color(0.29, 0.5, 0.22, 1)
+shader_parameter/scale = 0.7
+script = ExtResource("2_wvvxl")
+metadata/_custom_type_script = "uid://c8s11dcpw0xmb"
+
+[node name="BaseBuilding" unique_id=583408200 instance=ExtResource("1_58vmr")]
+z_index = 0
+
+[node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=1460258893]
+material = SubResource("ShaderMaterial_0qf2h")
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 13.0
+offset_bottom = 13.0
+
+[node name="Treeeee" type="Sprite2D" parent="." index="1" unique_id=1571448154]
+z_index = 10
+y_sort_enabled = true
+position = Vector2(-1.0000002, -4)
+scale = Vector2(0.12890624, 0.12890624)
+texture = ExtResource("4_58vmr")
+
+[node name="CollisionShape2D" parent="HideArea" parent_id_path=PackedInt32Array(1367318042) index="0" unique_id=1992347408]
+disabled = true
+
+[node name="CollisionShape2D2" parent="StaticBody2D" parent_id_path=PackedInt32Array(2047790647) index="0" unique_id=2066511439]
+position = Vector2(-0.5, 2.5)
