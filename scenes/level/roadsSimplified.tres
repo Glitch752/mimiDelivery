@@ -1,11 +1,9 @@
-[gd_scene format=4 uid="uid://dkmdre5twhdu6"]
+[gd_resource type="TileSet" format=3 uid="uid://crhtpt27nkk6h"]
 
-[ext_resource type="Script" uid="uid://cjque7d2au81j" path="res://scenes/level.gd" id="1_uhqny"]
-[ext_resource type="Texture2D" uid="uid://d1phcyais2y3x" path="res://art/map/template.png" id="2_6vs76"]
-[ext_resource type="PackedScene" uid="uid://c6a2gml8bh40a" path="res://scenes/mainCharacter.tscn" id="4_kl8ac"]
+[ext_resource type="Texture2D" uid="uid://d1phcyais2y3x" path="res://art/map/template.png" id="1_6b87b"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl8ac"]
-texture = ExtResource("2_6vs76")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ce3eo"]
+texture = ExtResource("1_6b87b")
 margins = Vector2i(2, 2)
 separation = Vector2i(2, 2)
 texture_region_size = Vector2i(32, 32)
@@ -33,20 +31,7 @@ texture_region_size = Vector2i(32, 32)
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 16, -16, 16, -16, -16, -4, -16)
 5:0/0/physics_layer_0/polygon_1/points = PackedVector2Array(4, 16, 4, -16, 16, -16, 16, 16)
 
-[sub_resource type="TileSet" id="TileSet_qifjx"]
+[resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_kl8ac")
-
-[node name="Level" type="Node2D" unique_id=875250379]
-script = ExtResource("1_uhqny")
-map_size = null
-
-[node name="Roads" type="TileMapLayer" parent="." unique_id=1277065790]
-texture_filter = 1
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAEAAAAAAABAAAAAAADAAAAABABAAEAAAAAAAAAAAAAAAEAAAABAAAAAAD//wEAAAAAAAAAAAD+/wEAAAADAAAAAAD+/wAAAAADAAAAAAD/////AAAFAAAAAAD+////AAAFAAAAAAABAP//AAAFAAAAAAD+//7/AAABAAAAAAD///7/AAABAAAAAAABAP7/AAABAAAAAAAAAP7/AAAEAAAAAAD+/wIAAAACAAAAAAD//wIAAAACAAAAAAAAAAIAAAACAAAAAAABAAIAAAACAAAAAAA=")
-tile_set = SubResource("TileSet_qifjx")
-
-[node name="Mimi" parent="." unique_id=831696364 instance=ExtResource("4_kl8ac")]
-position = Vector2(-5, 34)
+sources/0 = SubResource("TileSetAtlasSource_ce3eo")
