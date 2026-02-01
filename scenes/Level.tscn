@@ -678,11 +678,11 @@ size_flags_vertical = 4
 texture = ExtResource("13_p6oy6")
 stretch_mode = 3
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=399581657]
-
 [node name="Mimo\'sHell" type="AudioStreamPlayer2D" parent="." unique_id=789123634]
+visible = false
 position = Vector2(923, 602)
 stream = ExtResource("19_wsd7d")
+volume_db = -16.178
 autoplay = true
 
 [editable path="Mimi"]

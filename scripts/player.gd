@@ -30,6 +30,14 @@ func _physics_process(delta: float) -> void:
     else:
         velocity.y = move_toward(velocity.y, 0, ACCEL * delta)
     
+    if directionY or directionX:
+        print("play")
+        if not $Footstep.playing:
+            $Footstep.play()
+    else:
+        $Footstep.stop()
+        print("stop")
+    
     var time = Time.get_ticks_msec() / 1000.0
     $Sprite2D.rotation = sin(time * 20.0) * (velocity.length() / SPEED) * deg_to_rad(5)
 
