@@ -7,7 +7,7 @@ func _ready():
         update_label()
 
 func update_label():
-    print(MapData.building_data)
+    #print(MapData.building_data)
     var data = MapData.building_data.get(get_tile_position())
     if data == null:
         push_error("Building data not found for building at position %s" % get_tile_position())
@@ -17,6 +17,8 @@ func update_label():
     $%AddressLabel.text = "Singapurr Residence\n#%s" % padded_address
 
 func get_building_data(id: int) -> BuildingData:
-    var data: BuildingData_Destination = building_data.duplicate()
+    var data: BuildingDataDestination = building_data.duplicate()
     data.address = id
+    data.building_name = "%s #%d" % [data.building_name, data.address]
+    print(data.building_name)
     return data

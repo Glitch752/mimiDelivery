@@ -9,10 +9,10 @@ extends Resource
 
 
 func _init(p_speaker: String = "", p_speach: String = "",
-		p_next_dialogue: Dialogue = null, p_highlight_tasks: bool = false,
-		p_highlight_time: bool = false) -> void:
-	speaker = p_speaker
-	speach = p_speach
-	next_dialogue = p_next_dialogue
-	highlight_tasks = p_highlight_tasks
-	highlight_time = p_highlight_time
+        p_next_dialogue: Dialogue = null, p_highlight_tasks: bool = false,
+        p_highlight_time: bool = false) -> void:
+    speaker = p_speaker
+    speach = p_speach
+    next_dialogue = p_next_dialogue
+    highlight_tasks = p_highlight_tasks
+    highlight_time = p_highlight_time

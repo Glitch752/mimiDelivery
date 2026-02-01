@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://scripts/show_in_game.gd" id="5_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
 [ext_resource type="PackedScene" uid="uid://dx2pp7a303jmf" path="res://scenes/intro.tscn" id="7_x5162"]
-[ext_resource type="Script" uid="uid://vsu2blupw2th" path="res://scenes/lose_screen.gd" id="9_m4k3q"]
+[ext_resource type="Script" path="res://scenes/lose_screen.gd" id="9_m4k3q"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="10_yxaod"]
 
 [sub_resource type="Gradient" id="Gradient_kwwav"]
