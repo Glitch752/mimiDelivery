@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	var pressed = Input.is_action_just_pressed(catchString)
 	if pressed and blahajCooked:
 		print("caught")
+		InventoryItems.blahajs += 1
 		visible = false
 	elif pressed:
 		var newWaitTime = $Timer.time_left-1
