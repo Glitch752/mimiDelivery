@@ -15,6 +15,7 @@ var task_rows: Array[TaskRow]
 
 
 func _ready() -> void:
+    _setup_panel_style()
     lose_screen.hide()
     
     await TimeManager.time_changed
@@ -26,6 +27,18 @@ func _ready() -> void:
     
     TimeManager.time_changed.connect(check_tasks_timed_out)
 
+func _setup_panel_style() -> void:
+    var style = StyleBoxFlat.new()
+    style.bg_color = Color(0.12,0.15,0.18,0.82)
+    style.set_corner_radius_all(14)
+    style.set_border_width_all(1)
+    style.border_color = Color(1,1,1,0.1)
+    style.shadow_color = Color(0,0,0,0.4)
+    style.shadow_size = 10
+    style.shadow_offset = Vector2(0,4)
+    style.set_content_margin_all(20)
+    style.anti_aliasing = true
+    add_theme_stylebox_override("panel",style)
 
 func generate_task() -> Task:
     var shops: Array = MapData.buildings[MapData.BuildingPurpose.SHOP]
@@ -56,16 +69,19 @@ func add_task(task: Task) -> void:
     task_row.item_label = Label.new()
     task_row.item_label.label_settings = task_label_settings
     task_row.item_label.text = task.item_req.item_name
+    task_row.item_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.item_label)
     
     task_row.quantity_label = Label.new()
     task_row.quantity_label.label_settings = task_label_settings
     task_row.quantity_label.text = str(task.quantity)
+    task_row.quantity_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.quantity_label)
     
     task_row.destination_label = Label.new()
     task_row.destination_label.label_settings = task_label_settings
     task_row.destination_label.text = task.destination
+    task_row.destination_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.destination_label)
     
     task_row.time_label = Label.new()
@@ -76,11 +92,13 @@ func add_task(task: Task) -> void:
             task.due_hour,
             task.due_minute
     ]
+    task_row.time_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.time_label)
 
     task_row.direction_label = Label.new()
     task_row.direction_label.label_settings = task_label_settings
     task_row.direction_label.text = "N"
+    task_row.direction_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.direction_label)
 
 
@@ -139,5 +157,3 @@ func _process(delta: float) -> void:
         elif taskPos.x > playerPos.x:
             dirStr += "E"
         task_rows[i].direction_label.text = dirStr
-        
-        

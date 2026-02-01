@@ -47,6 +47,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=138198003]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Tasks:"
 label_settings = SubResource("LabelSettings_3mbat")
 
@@ -58,29 +59,34 @@ columns = 5
 [node name="ItemReq" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=563775937]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Item"
 label_settings = SubResource("LabelSettings_pplnk")
 
 [node name="Quantity" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=1971185563]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Quantity"
 label_settings = SubResource("LabelSettings_pplnk")
 
 [node name="Destination" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=2121593186]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Destination"
 label_settings = SubResource("LabelSettings_pplnk")
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=29282459]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Deliver By"
 label_settings = SubResource("LabelSettings_pplnk")
 
 [node name="Direction" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=724378670]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Direction"
 label_settings = SubResource("LabelSettings_pplnk")
