@@ -53,7 +53,7 @@ label_settings = SubResource("LabelSettings_3mbat")
 [node name="TasksList" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=932327377]
 layout_mode = 2
 theme_override_constants/h_separation = 8
-columns = 4
+columns = 5
 
 [node name="ItemReq" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=563775937]
 layout_mode = 2
@@ -77,4 +77,10 @@ label_settings = SubResource("LabelSettings_pplnk")
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Deliver By"
+label_settings = SubResource("LabelSettings_pplnk")
+
+[node name="Direction" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=724378670]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Direction"
 label_settings = SubResource("LabelSettings_pplnk")

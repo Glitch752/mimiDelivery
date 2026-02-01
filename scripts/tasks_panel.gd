@@ -5,6 +5,8 @@ extends PanelContainer
 @export var task_label_settings: LabelSettings
 @export var tasks_list: GridContainer
 @export var lose_screen: ColorRect
+@export var building_grid: TileMapLayer
+@export var player: Node2D
 
 ## The tasks
 var tasks: Array[Task]
@@ -37,7 +39,7 @@ func generate_task() -> Task:
     var destination_data: BuildingData
     destination_data = MapData.building_data[destination_pos]
     
-    return Task.new(item, 1, destination_data.building_name, 360)
+    return Task.new(item, 1, destination_data.building_name, randi_range(1000,1500), destination_pos)
 
 
 ## Adds a task to tasks and displays it
@@ -76,6 +78,11 @@ func add_task(task: Task) -> void:
     ]
     tasks_list.add_child(task_row.time_label)
 
+    task_row.direction_label = Label.new()
+    task_row.direction_label.label_settings = task_label_settings
+    task_row.direction_label.text = "N"
+    tasks_list.add_child(task_row.direction_label)
+
 
 func remove_task(task: Task) -> void:
     var index: int = tasks.find(task)
@@ -88,6 +95,7 @@ func remove_task(task: Task) -> void:
     task_row.item_label.queue_free()
     task_row.quantity_label.queue_free()
     task_row.time_label.queue_free()
+    task_row.direction_label.queue_free()
 
 
 func check_tasks_timed_out() -> void:
@@ -115,3 +123,22 @@ func check_tasks_timed_out() -> void:
 func lose() -> void:
     lose_screen.show()
     get_tree().paused = true
+
+func _process(delta: float) -> void:
+    var playerPos = building_grid.local_to_map(building_grid.to_local(player.global_position))
+    print(playerPos)
+    for i in range(len(tasks)):
+        var task = tasks[i]
+        var taskPos = task.pos
+        var dirStr = ""
+        if taskPos.y < playerPos.y:
+            dirStr += "N"
+        elif taskPos.y > playerPos.y:
+            dirStr += "S"
+        if taskPos.x < playerPos.x:
+            dirStr += "W"
+        elif taskPos.x > playerPos.x:
+            dirStr += "E"
+        task_rows[i].direction_label.text = dirStr
+        
+        
