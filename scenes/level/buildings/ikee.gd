@@ -9,4 +9,4 @@ func _ready():
 
 func _on_body_entered_interact(body: Node) -> void:
     if body.is_in_group("player"):
-        body.open_minigame(preload("res://scenes/catchBlahaj.tscn"))
+         body.open_minigame(preload("res://scenes/catchBlahaj.tscn"))

@@ -18,8 +18,8 @@ func _ready() -> void:
 	await TimeManager.time_changed
 	
 	# Test tasks
-	add_task(Task.new(load("res://items/blahaj.tres"), 1, "Venue", 120))
-	add_task(Task.new(load("res://items/blahaj.tres"), 1, "Venue", 10))
+	add_task(Task.new(load("res://items/blahaj.tres"), 1, "Venue", 1200))
+	add_task(Task.new(load("res://items/blahaj.tres"), 1, "Venue", 1000))
 	add_task(Task.new(load("res://items/blahaj.tres"), 2700, "J8 Hotel", 60*19))
 	
 	remove_task(tasks[0])

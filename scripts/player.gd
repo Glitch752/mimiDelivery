@@ -60,7 +60,17 @@ func _physics_process(delta: float) -> void:
     
     move_and_slide()
 
+var minigame_open = false
+
 func open_minigame(minigame: PackedScene):
-    $%MinigameContainer.add_child(minigame.instantiate())
-    await minigame.finish
-    minigame.queue_free()
+    if minigame_open:
+        return
+    
+    minigame_open = true
+
+    var scene = minigame.instantiate()
+    $%MinigameContainer.add_child(scene)
+    await scene.finish
+    scene.queue_free()
+
+    minigame_open = false

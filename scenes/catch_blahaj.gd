@@ -1,5 +1,7 @@
 extends Control
 
+signal finish
+
 var blahajCooked = false
 var rng = RandomNumberGenerator.new()
 var randKey = 0
@@ -28,15 +30,15 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     var pressed = Input.is_action_just_pressed(catchString)
     if pressed and blahajCooked:
-        print("caught")
         InventoryItems.blahajs += 1
+        finish.emit()
         visible = false
     elif pressed:
         var newWaitTime = $Timer.time_left-1
         $Timer.stop()
         $Timer.wait_time = newWaitTime
         $Timer.start()
-        print("not caught")
+        finish.emit()
     $ProgressBar.value = $Timer.time_left
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
