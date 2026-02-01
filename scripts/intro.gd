@@ -29,6 +29,7 @@ func _next_dialogue() -> void:
 	else:
 		hide()
 		player.in_intro = false
+		TimeManager.start_time()
 
 
 func _display_dialogue() -> void:

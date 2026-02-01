@@ -1,7 +1,7 @@
 class_name Task
 extends Resource
 
-@export var item_req: String
+@export var item_req: Item
 @export var quantity: int = 1
 @export var destination: String
 @export var time_to_complete: int = 60
@@ -12,7 +12,7 @@ var due_day: int
 var due_week: int
 
 
-func _init(p_item_req: String = "", p_quantity: int = 1,
+func _init(p_item_req: Item = null, p_quantity: int = 1,
 		p_destination: String = "", p_time_to_complete: int = 60) -> void:
 	item_req = p_item_req
 	quantity = p_quantity

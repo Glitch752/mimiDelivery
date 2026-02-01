@@ -15,6 +15,7 @@ metadata/_custom_type_script = "uid://c8s11dcpw0xmb"
 
 [node name="BaseBuilding" unique_id=583408200 instance=ExtResource("1_m5dfk")]
 z_index = 0
+purpose = 3
 
 [node name="CollisionShape2D" parent="HideArea" parent_id_path=PackedInt32Array(1367318042) index="0" unique_id=1992347408]
 disabled = true

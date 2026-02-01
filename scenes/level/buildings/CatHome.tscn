@@ -28,6 +28,7 @@ font_size = 100
 z_index = 0
 script = ExtResource("2_msfml")
 address = 0
+purpose = 1
 
 [node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=1460258893]
 material = SubResource("ShaderMaterial_0qf2h")

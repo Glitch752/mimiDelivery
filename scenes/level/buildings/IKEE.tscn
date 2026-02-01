@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bmjufwhraqdtj"]
 
 [ext_resource type="PackedScene" uid="uid://ckb1p54uwlcj4" path="res://scenes/level/buildings/BaseBuilding.tscn" id="1_kcngo"]
+[ext_resource type="Script" uid="uid://bsvwb03y27t7a" path="res://scripts/item.gd" id="2_3erja"]
+[ext_resource type="Resource" uid="uid://k6kjnly2mrp8" path="res://items/blahaj.tres" id="3_mqtb5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8sppw"]
 font_size = 800
@@ -14,6 +16,7 @@ size = Vector2(56, 55)
 
 [node name="IKEA" unique_id=583408200 instance=ExtResource("1_kcngo")]
 tile_size = Vector2i(2, 2)
+items = Array[ExtResource("2_3erja")]([ExtResource("3_mqtb5")])
 
 [node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=927308634]
 offset_left = -12.0

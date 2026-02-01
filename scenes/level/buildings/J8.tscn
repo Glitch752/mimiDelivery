@@ -13,6 +13,7 @@ size = Vector2(56, 23)
 
 [node name="J8" unique_id=583408200 instance=ExtResource("1_p2i55")]
 tile_size = Vector2i(2, 1)
+purpose = 1
 
 [node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=927308634]
 offset_left = -12.0
