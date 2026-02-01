@@ -15,10 +15,12 @@ var task_rows: Array[TaskRow]
 func _ready() -> void:
 	lose_screen.hide()
 	
+	await TimeManager.time_changed
+	
 	# Test tasks
-	add_task(Task.new("Blahaj", 1, "Venue", 120))
-	add_task(Task.new("Blahaj", 1, "Venue", 10))
-	add_task(Task.new("Durian", 2700, "J8 Hotel", 60*19))
+	add_task(Task.new(load("res://items/blahaj.tres"), 1, "Venue", 120))
+	add_task(Task.new(load("res://items/blahaj.tres"), 1, "Venue", 10))
+	add_task(Task.new(load("res://items/blahaj.tres"), 2700, "J8 Hotel", 60*19))
 	
 	remove_task(tasks[0])
 	
@@ -38,7 +40,7 @@ func add_task(task: Task) -> void:
 	
 	task_row.item_label = Label.new()
 	task_row.item_label.label_settings = task_label_settings
-	task_row.item_label.text = task.item_req
+	task_row.item_label.text = task.item_req.item_name
 	tasks_list.add_child(task_row.item_label)
 	
 	task_row.quantity_label = Label.new()

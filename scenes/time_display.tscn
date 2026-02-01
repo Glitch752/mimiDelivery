@@ -41,15 +41,19 @@ alignment = 1
 [node name="TimeLabel" type="Label" parent="ColorRect/VBoxContainer" unique_id=1171826093]
 layout_mode = 2
 size_flags_horizontal = 4
+text = "8:00"
 
 [node name="DayNightLabel" type="Label" parent="ColorRect/VBoxContainer" unique_id=1915134642]
 layout_mode = 2
 size_flags_horizontal = 4
+text = "(Day)"
 
 [node name="DayLabel" type="Label" parent="ColorRect/VBoxContainer" unique_id=419530167]
 layout_mode = 2
 size_flags_horizontal = 4
+text = "Monday"
 
 [node name="WeekLabel" type="Label" parent="ColorRect/VBoxContainer" unique_id=1898011368]
 layout_mode = 2
 size_flags_horizontal = 4
+text = "Week 1"

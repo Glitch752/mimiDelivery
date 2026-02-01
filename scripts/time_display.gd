@@ -22,7 +22,6 @@ extends Control
 
 func _ready() -> void:
 	TimeManager.time_changed.connect(display_time)
-	TimeManager.start_time()
 
 
 ## Update time display

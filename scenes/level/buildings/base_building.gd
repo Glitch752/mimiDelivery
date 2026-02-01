@@ -17,6 +17,7 @@ enum Purpose {
 ## The items this shop can give if it is a shop
 @export var items: Array[Item]
 
+
 func _ready() -> void:
 	hide_area.body_entered.connect(_on_body_entered)
 	hide_area.body_exited.connect(_on_body_exited)
