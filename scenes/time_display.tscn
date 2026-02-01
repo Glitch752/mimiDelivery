@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cyv7v7h5xwsnj"]
+[gd_scene format=3 uid="uid://c6isidgrp4hl7"]
 
 [ext_resource type="Script" uid="uid://esmy0pfbn7lb" path="res://scripts/time_display.gd" id="1_3uj10"]
 
@@ -10,6 +10,8 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -200.0
 grow_horizontal = 0
 grow_vertical = 0
 script = ExtResource("1_3uj10")

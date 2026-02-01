@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_0n537"]
 [ext_resource type="Texture2D" uid="uid://c6o77ns2pacnc" path="res://icon.svg" id="2_trh3t"]
+[ext_resource type="PackedScene" uid="uid://c6isidgrp4hl7" path="res://scenes/time_display.tscn" id="4_gff5m"]
+[ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gff5m"]
 size = Vector2(5, 5)
@@ -20,3 +22,20 @@ shape = SubResource("RectangleShape2D_gff5m")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2025200547]
 zoom = Vector2(20, 20)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" unique_id=1420971322]
+
+[node name="UIOverlay" type="Control" parent="Player/Camera2D/CanvasLayer" unique_id=1291501507]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TasksPanel" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=463488195 instance=ExtResource("5_nthm3")]
+layout_mode = 1
+
+[node name="TimeDisplay" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=108378729 node_paths=PackedStringArray("day_night_filter_parent") instance=ExtResource("4_gff5m")]
+layout_mode = 1
+day_night_filter_parent = NodePath("../../../../..")
