@@ -1,6 +1,13 @@
 extends Node
 
+enum BuildingPurpose {
+    SHOP,
+    DESTINATION,
+    DECORATION,
+    MRT,
+}
+
 var house_addresses: Dictionary[Vector2i, int]
 
-func set_addresses(addresses: Dictionary[Vector2i, int]):
-    house_addresses = addresses
+## Dictionary[BuildingPurpose, Array[Vector2i]]
+var buildings: Dictionary[BuildingPurpose, Array]

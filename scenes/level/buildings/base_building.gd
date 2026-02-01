@@ -2,12 +2,6 @@
 
 extends Node2D
 
-enum Purpose {
-    SHOP,
-    DESTINATION,
-    DECORATION,
-    MRT,
-}
 
 # hide when the player goes behind it
 @onready var hide_area: Area2D = $HideArea
@@ -15,7 +9,7 @@ enum Purpose {
 @export var tile_size: Vector2i = Vector2i.ONE
 
 ## The purpose of this building
-@export var purpose: Purpose
+@export var purpose: MapData.BuildingPurpose
 ## The items this shop can give if it is a shop
 @export var items: Array[Item]
 

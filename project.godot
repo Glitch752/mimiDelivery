@@ -20,6 +20,13 @@ config/icon="res://icon.svg"
 TimeManager="*uid://woa64b3uqnxs"
 MapData="*uid://dd5awlg22iote"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")

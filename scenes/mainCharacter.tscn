@@ -88,7 +88,6 @@ shape = SubResource("RectangleShape2D_gff5m")
 zoom = Vector2(20, 20)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D" unique_id=1420971322]
-visible = false
 script = ExtResource("5_jaax5")
 
 [node name="UIOverlay" type="Control" parent="Player/Camera2D/CanvasLayer" unique_id=1291501507]
@@ -103,28 +102,30 @@ grow_vertical = 2
 layout_mode = 1
 day_night_filter_parent = NodePath("../../../../..")
 
+[node name="TimeArrow" type="Line2D" parent="Player/Camera2D/CanvasLayer/UIOverlay/TimeDisplay" unique_id=377885905]
+position = Vector2(241, -217)
+rotation = 3.1415927
+scale = Vector2(1, -1)
+points = PackedVector2Array(380, 320, 410, 290, 380, 320, 410, 350, 380, 320, 451.7376, 320, 500, 320)
+default_color = Color(1, 0, 0, 1)
+
 [node name="TasksPanel" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=463488195 node_paths=PackedStringArray("lose_screen") instance=ExtResource("5_nthm3")]
 layout_mode = 1
 lose_screen = NodePath("../LoseScreen")
 
+[node name="TasksArrow" type="Line2D" parent="Player/Camera2D/CanvasLayer/UIOverlay/TasksPanel" unique_id=106911652]
+position = Vector2(96, -271)
+points = PackedVector2Array(380, 320, 410, 290, 380, 320, 410, 350, 380, 320, 441.0142, 319.99997, 500, 320)
+default_color = Color(1, 0, 0, 1)
+
 [node name="Intro" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1368636052 node_paths=PackedStringArray("player", "tasks_arrow", "time_arrow") instance=ExtResource("7_x5162")]
 layout_mode = 1
 player = NodePath("../../../..")
-tasks_arrow = NodePath("../TasksArrow")
-time_arrow = NodePath("../TimeArrow")
-
-[node name="TasksArrow" type="Line2D" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=106911652]
-position = Vector2(95, 4)
-points = PackedVector2Array(380, 320, 410, 290, 380, 320, 410, 350, 380, 320, 500, 320)
-default_color = Color(1, 0, 0, 1)
-
-[node name="TimeArrow" type="Line2D" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=377885905]
-position = Vector2(1209, 176)
-scale = Vector2(-1, 1)
-points = PackedVector2Array(380, 320, 410, 290, 380, 320, 410, 350, 380, 320, 500, 320)
-default_color = Color(1, 0, 0, 1)
+tasks_arrow = NodePath("../TasksPanel/TasksArrow")
+time_arrow = NodePath("../TimeDisplay/TimeArrow")
 
 [node name="LoseScreen" type="ColorRect" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1495757823]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
