@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://b3f88vdph2hur"]
+
+[ext_resource type="Resource" uid="uid://c72f35ejj1ygm" path="res://dialogues/threats_dialogue.tres" id="1_itrm5"]
+[ext_resource type="Script" uid="uid://55o782g00u5n" path="res://dialogue.gd" id="2_en08t"]
+
+[resource]
+script = ExtResource("2_en08t")
+speaker = "Mimi"
+speach = "Thanks! I'm ready to start working as a delivery driver."
+next_dialogue = ExtResource("1_itrm5")
+metadata/_custom_type_script = "uid://55o782g00u5n"

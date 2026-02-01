@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://ddf7fcxvrcfa8"]
+
+[ext_resource type="Resource" uid="uid://ckwm7s2mtvppy" path="res://dialogues/singapurr_dialogue.tres" id="1_kygti"]
+[ext_resource type="Script" uid="uid://55o782g00u5n" path="res://dialogue.gd" id="2_uthhf"]
+
+[resource]
+script = ExtResource("2_uthhf")
+speaker = "Mimi"
+speach = "Hi boss. My flight finally landed."
+next_dialogue = ExtResource("1_kygti")
+metadata/_custom_type_script = "uid://55o782g00u5n"
