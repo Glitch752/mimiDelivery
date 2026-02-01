@@ -682,7 +682,7 @@ stretch_mode = 3
 visible = false
 position = Vector2(923, 602)
 stream = ExtResource("19_wsd7d")
-volume_db = -16.178
+volume_db = -23.373
 autoplay = true
 
 [editable path="Mimi"]
