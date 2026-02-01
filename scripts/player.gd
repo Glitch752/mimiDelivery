@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const SPEED = 50.0
@@ -5,8 +6,13 @@ const ACCEL = 1800.0
 
 @export var particles: GPUParticles2D
 
+var in_intro: bool = true
+
 
 func _physics_process(delta: float) -> void:
+	if in_intro:
+		return
+	
 	var directionX := Input.get_axis("left","right")
 	var directionY := Input.get_axis("up","down")
 	if directionX:
@@ -45,11 +51,11 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.animation = direction_animations[nearest_dir]
 	
 	if velocity != Vector2(0, 0):
-		particles.amount_ratio = 1
+		particles.emitting = true
 		var particle_material: ParticleProcessMaterial = particles.process_material
 		particle_material.gravity = -Vector3(velocity.x, velocity.y, 0) * 0.8
 		particle_material.gravity += Vector3(0, 12, 0)
 	else:
-		particles.amount_ratio = 0
+		particles.emitting = false
 	
 	move_and_slide()

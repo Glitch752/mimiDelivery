@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_1ejnp")
 speaker = "Mimi"
-speach = "Hi boss.I'm ready to start working as a delivery driver"
+speach = "Hi boss. I'm ready to start working as a delivery driver."
 next_dialogue = ExtResource("1_vyp8q")
 metadata/_custom_type_script = "uid://55o782g00u5n"

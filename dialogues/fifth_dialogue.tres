@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://8l8yhkihf7xc"]
+
+[ext_resource type="Script" uid="uid://55o782g00u5n" path="res://dialogue.gd" id="1_7546n"]
+[ext_resource type="Resource" uid="uid://dujb6ddjlcb3j" path="res://dialogues/sixth_dialogue.tres" id="1_l3heh"]
+
+[resource]
+script = ExtResource("1_7546n")
+speaker = "Mimo"
+speach = "Your tasks list shows what deliveries you must make. It tells you what you need, where you need to take it, and when you need to deliver it."
+next_dialogue = ExtResource("1_l3heh")
+highlight_tasks = true
+metadata/_custom_type_script = "uid://55o782g00u5n"

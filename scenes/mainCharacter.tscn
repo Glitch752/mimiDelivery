@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6isidgrp4hl7" path="res://scenes/time_display.tscn" id="4_gff5m"]
 [ext_resource type="Texture2D" uid="uid://bs12ci2q1u0gt" path="res://art/mimi/up.png" id="4_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
+[ext_resource type="PackedScene" uid="uid://dx2pp7a303jmf" path="res://scenes/intro.tscn" id="7_x5162"]
 
 [sub_resource type="Gradient" id="Gradient_kwwav"]
 colors = PackedColorArray(0.42, 0.34145996, 0.28139997, 1, 0.53, 0.5198417, 0.5035, 1)
@@ -71,6 +72,7 @@ script = ExtResource("1_0n537")
 particles = NodePath("GPUParticles2D")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Player" unique_id=1934129415]
+emitting = false
 process_material = SubResource("ParticleProcessMaterial_jaax5")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1838044837]
@@ -94,9 +96,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TasksPanel" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=463488195 instance=ExtResource("5_nthm3")]
-layout_mode = 1
-
 [node name="TimeDisplay" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=108378729 node_paths=PackedStringArray("day_night_filter_parent") instance=ExtResource("4_gff5m")]
 layout_mode = 1
 day_night_filter_parent = NodePath("../../../../..")
+
+[node name="TasksPanel" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=463488195 instance=ExtResource("5_nthm3")]
+layout_mode = 1
+
+[node name="Intro" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1368636052 node_paths=PackedStringArray("player", "tasks_arrow", "time_arrow") instance=ExtResource("7_x5162")]
+layout_mode = 1
+player = NodePath("../../../..")
+tasks_arrow = NodePath("../TasksArrow")
+time_arrow = NodePath("../TimeArrow")
+
+[node name="TasksArrow" type="Line2D" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=106911652]
+position = Vector2(95, 4)
+points = PackedVector2Array(380, 320, 410, 290, 380, 320, 410, 350, 380, 320, 500, 320)
+default_color = Color(1, 0, 0, 1)
+
+[node name="TimeArrow" type="Line2D" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=377885905]
+position = Vector2(1209, 176)
+scale = Vector2(-1, 1)
+points = PackedVector2Array(380, 320, 410, 290, 380, 320, 410, 350, 380, 320, 500, 320)
+default_color = Color(1, 0, 0, 1)

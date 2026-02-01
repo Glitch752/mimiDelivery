@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://dujb6ddjlcb3j"]
+
+[ext_resource type="Resource" uid="uid://d2yhmucn5ootx" path="res://dialogues/seventh_dialogue.tres" id="1_7dpdo"]
+[ext_resource type="Script" uid="uid://55o782g00u5n" path="res://dialogue.gd" id="1_74na5"]
+
+[resource]
+script = ExtResource("1_74na5")
+speaker = "Mimo"
+speach = "You need to pay attention to the time to know how long you have to complete your deliveries."
+next_dialogue = ExtResource("1_7dpdo")
+highlight_time = true
+metadata/_custom_type_script = "uid://55o782g00u5n"
