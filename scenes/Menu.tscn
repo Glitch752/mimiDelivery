@@ -10,25 +10,6 @@
 texture = ExtResource("1_xdvgc")
 modulate_color = Color(0.65012825, 0.6501283, 0.65012825, 1)
 
-[sub_resource type="FontFile" id="FontFile_lumdm"]
-subpixel_positioning = 0
-msdf_pixel_range = 14
-msdf_size = 128
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdvgc"]
 bg_color = Color(0.85755926, 0.84526587, 0.8350678, 1)
 corner_radius_top_left = 5
@@ -206,7 +187,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_lumdm")
+theme_override_fonts/font = ExtResource("2_upctu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_upctu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_11y2r")
@@ -218,7 +199,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_lumdm")
+theme_override_fonts/font = ExtResource("2_upctu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_o0tnf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_jmdev")
@@ -231,7 +212,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = SubResource("FontFile_lumdm")
+theme_override_fonts/font = ExtResource("2_upctu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_b6cxs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aaywf")

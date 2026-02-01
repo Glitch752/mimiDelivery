@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://ckd3mu10naw8y" path="res://art/mimiicon-1.png.png" id="13_p6oy6"]
 [ext_resource type="Script" uid="uid://bjssiakt2chbg" path="res://scenes/level/buildings/data/building_data_destination.gd" id="13_xe3hh"]
 [ext_resource type="Script" path="res://scripts/minimap.gd" id="15_p6oy6"]
+[ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="16_40jy2"]
 [ext_resource type="Texture2D" uid="uid://3qybvbjv7k5n" path="res://art/minimap_frame.png" id="16_xyj84"]
 [ext_resource type="AudioStream" uid="uid://78iscfm8kius" path="res://Sounds/Mimo's Hell.ogg" id="19_wsd7d"]
 
@@ -638,12 +639,16 @@ position = Vector2(-5, 34)
 [node name="TasksPanel" parent="Mimi/Player/Camera2D/CanvasLayer/UIOverlay" parent_id_path=PackedInt32Array(831696364, 1291501507) index="1" unique_id=463488195 node_paths=PackedStringArray("building_grid", "player")]
 building_grid = NodePath("../../../../../../BuildingGrid")
 player = NodePath("../../../..")
+taskFont = ExtResource("16_40jy2")
 
 [node name="MinigameContainer" parent="Mimi/Player/Camera2D/CanvasLayer/UIOverlay" parent_id_path=PackedInt32Array(831696364, 1291501507) index="4" unique_id=1729124971]
 mouse_filter = 2
 
 [node name="MetroMap" parent="Mimi/Player/Camera2D/CanvasLayer/UIOverlay" parent_id_path=PackedInt32Array(831696364, 1291501507) index="5" unique_id=94377571 node_paths=PackedStringArray("building_grid")]
 building_grid = NodePath("../../../../../../BuildingGrid")
+
+[node name="Footstep" parent="Mimi/Player" parent_id_path=PackedInt32Array(831696364, 1929506976) index="4" unique_id=641009070]
+process_mode = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1816034904]
 
@@ -688,6 +693,7 @@ texture = ExtResource("13_p6oy6")
 stretch_mode = 3
 
 [node name="Mimo\'sHell" type="AudioStreamPlayer2D" parent="." unique_id=789123634]
+process_mode = 3
 visible = false
 position = Vector2(923, 602)
 stream = ExtResource("19_wsd7d")

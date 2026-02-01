@@ -7,6 +7,7 @@ extends PanelContainer
 @export var lose_screen: ColorRect
 @export var building_grid: TileMapLayer
 @export var player: Node2D
+@export var taskFont: Font
 
 ## The tasks
 var tasks: Array[Task]
@@ -17,7 +18,8 @@ var task_rows: Array[TaskRow]
 func _ready() -> void:
     _setup_panel_style()
     lose_screen.hide()
-    
+    task_label_settings.font_color = Color(1,1,1,1)
+    task_label_settings.font = taskFont 
     await TimeManager.time_changed
     
     add_task(generate_task())
