@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cfic0od4syqc"]
 
 [ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="1_npdls"]
-[ext_resource type="Script" path="res://scripts/catch_blahaj.gd" id="1_r1xx1"]
+[ext_resource type="Script" uid="uid://pmq54c5plqsl" path="res://scripts/catch_blahaj.gd" id="1_r1xx1"]
 [ext_resource type="Texture2D" uid="uid://babkdhew4koa7" path="res://art/down.png" id="3_bj6kg"]
+[ext_resource type="AudioStream" uid="uid://dxfx7difux08b" path="res://Sounds/blahajChange.ogg" id="4_x8wjq"]
+[ext_resource type="AudioStream" uid="uid://dlpuj6jcx42ic" path="res://Sounds/blahajCooked.ogg" id="5_u2nqs"]
 
 [sub_resource type="Animation" id="Animation_r1xx1"]
 length = 0.75
@@ -72,6 +74,9 @@ size = Vector2(36, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2itnl"]
 size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8x3x"]
+size = Vector2(23.5, 20)
 
 [node name="catchBlahaj" type="Control" unique_id=2061959431]
 layout_mode = 3
@@ -150,6 +155,28 @@ show_percentage = false
 [node name="Timer" type="Timer" parent="." unique_id=1779281890]
 wait_time = 5.0
 
+[node name="BlahajChange" type="AudioStreamPlayer2D" parent="." unique_id=750977063]
+position = Vector2(-621, -150)
+stream = ExtResource("4_x8wjq")
+
+[node name="changeDirArea2" type="Area2D" parent="." unique_id=1376139842]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="changeDirArea2" unique_id=777900516]
+position = Vector2(120.5, 34.5)
+shape = SubResource("RectangleShape2D_w8x3x")
+
+[node name="changeDirArea" type="Area2D" parent="." unique_id=1994109262]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="changeDirArea" unique_id=525816879]
+position = Vector2(-118, 36.5)
+shape = SubResource("RectangleShape2D_w8x3x")
+
+[node name="BlahajCooked" type="AudioStreamPlayer2D" parent="." unique_id=94038783]
+position = Vector2(-61.5, 131)
+stream = ExtResource("5_u2nqs")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="changeDirArea2" to="." method="_on_change_dir_area_2_body_entered"]
+[connection signal="body_entered" from="changeDirArea" to="." method="_on_change_dir_area_body_entered"]
