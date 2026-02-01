@@ -14,6 +14,9 @@ size = Vector2(56, 62)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnjpe"]
 size = Vector2(56, 55)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3erja"]
+size = Vector2(63, 65)
+
 [node name="IKEA" unique_id=583408200 instance=ExtResource("1_kcngo")]
 tile_size = Vector2i(2, 2)
 items = Array[ExtResource("2_3erja")]([ExtResource("3_mqtb5")])
@@ -57,3 +60,7 @@ shape = SubResource("RectangleShape2D_kcngo")
 [node name="CollisionShape2D2" parent="StaticBody2D" parent_id_path=PackedInt32Array(2047790647) index="0" unique_id=2066511439]
 position = Vector2(16, 15.5)
 shape = SubResource("RectangleShape2D_nnjpe")
+
+[node name="CollisionShape2D" parent="InteractionArea" parent_id_path=PackedInt32Array(673963069) index="0" unique_id=1015924089]
+position = Vector2(16.5, 13.5)
+shape = SubResource("RectangleShape2D_3erja")

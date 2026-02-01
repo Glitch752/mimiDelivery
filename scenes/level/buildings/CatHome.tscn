@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://3jtirvh8swdx"]
 
 [ext_resource type="PackedScene" uid="uid://ckb1p54uwlcj4" path="res://scenes/level/buildings/BaseBuilding.tscn" id="1_58vmr"]
-[ext_resource type="Script" uid="uid://bixraqjrvirpe" path="res://scenes/level/buildings/cat_home.gd" id="2_msfml"]
+[ext_resource type="Script" path="res://scenes/level/buildings/cat_home.gd" id="2_msfml"]
 [ext_resource type="Script" uid="uid://c8s11dcpw0xmb" path="res://scripts/util/hot_reload_shader.gd" id="2_wvvxl"]
 [ext_resource type="Shader" uid="uid://blfhtp1bxr0ky" path="res://scripts/graphics/land.gdshader" id="3_msfml"]
 [ext_resource type="Texture2D" uid="uid://l2doq62mhmhn" path="res://art/map/cattower.png" id="4_58vmr"]
@@ -23,6 +23,9 @@ size = Vector2(2, 2)
 
 [sub_resource type="LabelSettings" id="LabelSettings_wvvxl"]
 font_size = 100
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jb1aw"]
+size = Vector2(12, 16)
 
 [node name="CatHome" unique_id=583408200 instance=ExtResource("1_58vmr")]
 z_index = 0
@@ -68,6 +71,10 @@ offset_right = 936.0
 offset_bottom = 255.66699
 scale = Vector2(0.1, 0.1)
 text = "Singapurr Residence
-#000001"
+#000000"
 label_settings = SubResource("LabelSettings_wvvxl")
 horizontal_alignment = 1
+
+[node name="CollisionShape2D" parent="InteractionArea" parent_id_path=PackedInt32Array(673963069) index="0" unique_id=1015924089]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_jb1aw")

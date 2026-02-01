@@ -2,9 +2,11 @@
 
 extends Node2D
 
-
 # hide when the player goes behind it
 @onready var hide_area: Area2D = $HideArea
+
+# interact when the player goes near it
+@onready var interaction_area: Area2D = $InteractionArea
 
 @export var tile_size: Vector2i = Vector2i.ONE
 

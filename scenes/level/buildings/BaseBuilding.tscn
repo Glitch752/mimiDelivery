@@ -23,3 +23,9 @@ shape = SubResource("RectangleShape2D_y5dye")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2066511439]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_0h08y")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=673963069]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1015924089]
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_y5dye")
