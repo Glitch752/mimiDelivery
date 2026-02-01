@@ -100,8 +100,9 @@ grow_vertical = 2
 layout_mode = 1
 day_night_filter_parent = NodePath("../../../../..")
 
-[node name="TasksPanel" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=463488195 instance=ExtResource("5_nthm3")]
+[node name="TasksPanel" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=463488195 node_paths=PackedStringArray("lose_screen") instance=ExtResource("5_nthm3")]
 layout_mode = 1
+lose_screen = NodePath("../LoseScreen")
 
 [node name="Intro" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1368636052 node_paths=PackedStringArray("player", "tasks_arrow", "time_arrow") instance=ExtResource("7_x5162")]
 layout_mode = 1
@@ -119,3 +120,27 @@ position = Vector2(1209, 176)
 scale = Vector2(-1, 1)
 points = PackedVector2Array(380, 320, 410, 290, 380, 320, 410, 350, 380, 320, 500, 320)
 default_color = Color(1, 0, 0, 1)
+
+[node name="LoseScreen" type="ColorRect" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1495757823]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.7490196)
+
+[node name="Label" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen" unique_id=442108454]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "You Lose!"

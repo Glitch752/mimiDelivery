@@ -31,3 +31,8 @@ func calculate_due_time() -> void:
 	time_left = roundi((time_left - due_day) / 7.0)
 	
 	due_week = time_left
+	
+	due_minute += TimeManager.minute
+	due_hour += TimeManager.hour
+	due_day += TimeManager.day
+	due_week += TimeManager.week
