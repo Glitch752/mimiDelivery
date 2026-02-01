@@ -10,35 +10,35 @@ var in_intro: bool = true
 
 
 func _physics_process(delta: float) -> void:
-	if in_intro:
-		return
-	
-	var directionX := Input.get_axis("left","right")
-	var directionY := Input.get_axis("up","down")
-	if directionX:
-		velocity.x = move_toward(velocity.x, directionX * SPEED, ACCEL * delta)
-		if directionX > 0:
-			$Sprite2D.flip_h = true
-		else:
-			$Sprite2D.flip_h = false
-	else:
-		velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
-	if directionY:
-		velocity.y = move_toward(velocity.y, directionY * SPEED, ACCEL * delta)
-	else:
-		velocity.y = move_toward(velocity.y, 0, ACCEL * delta)
-	
-	var time = Time.get_ticks_msec() / 1000.0
-	$Sprite2D.rotation = sin(time * 20.0) * (velocity.length() / SPEED) * deg_to_rad(5)
+    if in_intro:
+        return
+    
+    var directionX := Input.get_axis("left","right")
+    var directionY := Input.get_axis("up","down")
+    if directionX:
+        velocity.x = move_toward(velocity.x, directionX * SPEED, ACCEL * delta)
+        if directionX > 0:
+            $Sprite2D.flip_h = true
+        else:
+            $Sprite2D.flip_h = false
+    else:
+        velocity.x = move_toward(velocity.x, 0, ACCEL * delta)
+    if directionY:
+        velocity.y = move_toward(velocity.y, directionY * SPEED, ACCEL * delta)
+    else:
+        velocity.y = move_toward(velocity.y, 0, ACCEL * delta)
+    
+    var time = Time.get_ticks_msec() / 1000.0
+    $Sprite2D.rotation = sin(time * 20.0) * (velocity.length() / SPEED) * deg_to_rad(5)
 
-	if velocity.length() > SPEED * 0.1:
-		# Set animtion to the nearest direction
-		var direction_animations = {
-			Vector2.UP: "up",
-			Vector2.DOWN: "down",
-			Vector2.LEFT: "side",
-			Vector2.RIGHT: "side"
-		}
+    if velocity.length() > SPEED * 0.1:
+        # Set animtion to the nearest direction
+        var direction_animations = {
+            Vector2.UP: "up",
+            Vector2.DOWN: "down",
+            Vector2.LEFT: "side",
+            Vector2.RIGHT: "side"
+        }
 
         var nearest_dir = Vector2.UP
         var nearest_dot = -1.0

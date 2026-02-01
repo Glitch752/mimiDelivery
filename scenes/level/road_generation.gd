@@ -8,18 +8,18 @@ var tile_roads = _tile_roads
 @export var building_grid: TileMapLayer
 
 func _tile_roads():
-	clear()
+    clear()
 
-	var building_rect = building_grid.get_used_rect()
+    var building_rect = building_grid.get_used_rect()
 
-	var bpos = building_rect.position
-	var bsize = building_rect.size
+    var bpos = building_rect.position
+    var bsize = building_rect.size
 
-	var _get_building_size = func(pos: Vector2i) -> Vector2i:
-		var scene_pos =\
-			building_grid.to_global(building_grid.map_to_local(pos + Vector2i.LEFT + Vector2i.UP))
-		# godot is silly and doesn't let us access a scene tile map's scene directly
-		# so we iterate over the tilemap's children and find the building there
+    var _get_building_size = func(pos: Vector2i) -> Vector2i:
+        var scene_pos =\
+            building_grid.to_global(building_grid.map_to_local(pos + Vector2i.LEFT + Vector2i.UP))
+        # godot is silly and doesn't let us access a scene tile map's scene directly
+        # so we iterate over the tilemap's children and find the building there
 		for child in building_grid.get_children():
 			if (child as Node2D).global_position == scene_pos:
 				return child.tile_size
