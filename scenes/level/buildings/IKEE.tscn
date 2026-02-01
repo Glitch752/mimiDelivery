@@ -13,6 +13,8 @@ metadata/_custom_type_script = "uid://bsvwb03y27t7a"
 [sub_resource type="Resource" id="Resource_25g1l"]
 script = ExtResource("3_3erja")
 items = Array[ExtResource("2_3erja")]([SubResource("Resource_mqtb5")])
+purpose = 0
+building_name = "IKEE"
 metadata/_custom_type_script = "uid://dvsdgjr81g6k6"
 
 [sub_resource type="LabelSettings" id="LabelSettings_8sppw"]

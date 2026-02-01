@@ -5,4 +5,4 @@ extends Resource
 
 
 func _init(p_item_name: StringName = "") -> void:
-	item_name = p_item_name
+    item_name = p_item_name

@@ -11,6 +11,7 @@
 [sub_resource type="Resource" id="Resource_i40bf"]
 script = ExtResource("4_o2fqd")
 purpose = 1
+building_name = "Cat Home"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0qf2h"]

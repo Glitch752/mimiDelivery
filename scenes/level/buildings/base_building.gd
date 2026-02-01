@@ -1,5 +1,5 @@
 @tool
-
+class_name BaseBuilding
 extends Node2D
 
 # hide when the player goes behind it
