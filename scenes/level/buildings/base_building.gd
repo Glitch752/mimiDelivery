@@ -1,3 +1,5 @@
+@tool
+
 extends Node2D
 
 # hide when the player goes behind it
@@ -5,11 +7,14 @@ extends Node2D
 
 @export var tile_size: Vector2i = Vector2i.ONE
 
-func _ready() -> void:
-    hide_area.body_entered.connect(_on_body_entered)
-    hide_area.body_exited.connect(_on_body_exited)
+func get_tile_position() -> Vector2i:
+    var tilemap: TileMapLayer = get_parent()
+    return tilemap.local_to_map(position)
 
-    set_meta("building", true)
+func _ready() -> void:
+    if not Engine.is_editor_hint():
+        hide_area.body_entered.connect(_on_body_entered)
+        hide_area.body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body: Node) -> void:
     if body.is_in_group("player"):
