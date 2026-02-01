@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dl30vil15mhio"
+path="res://.godot/imported/Mimi's Heaven.ogg-8fed333b4e787a3da42a3ebd09075bc7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Mimi's Heaven.ogg"
+dest_files=["res://.godot/imported/Mimi's Heaven.ogg-8fed333b4e787a3da42a3ebd09075bc7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

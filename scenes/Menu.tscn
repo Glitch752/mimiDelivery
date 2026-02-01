@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2l5bm5sk6sdn" path="res://images/slide1.png" id="1_xdvgc"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="2_upctu"]
 [ext_resource type="Script" uid="uid://bc3euugkqwqxl" path="res://scripts/settings.gd" id="3_o0tnf"]
+[ext_resource type="AudioStream" uid="uid://dl30vil15mhio" path="res://Sounds/Mimi's Heaven.ogg" id="5_jmdev"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_upctu"]
 texture = ExtResource("1_xdvgc")
@@ -236,6 +237,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_b6cxs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_aaywf")
 text = "Exit
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=60730033]
+stream = ExtResource("5_jmdev")
+autoplay = true
 
 [connection signal="value_changed" from="settings/VBoxContainer/Volume" to="settings" method="_on_volume_value_changed"]
 [connection signal="item_selected" from="settings/VBoxContainer/OptionButton" to="settings" method="_on_option_button_item_selected"]
