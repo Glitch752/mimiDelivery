@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://3jtirvh8swdx" path="res://scenes/level/buildings/CatHome.tscn" id="8_2eouu"]
 [ext_resource type="Script" uid="uid://boypkrxtchbfp" path="res://scenes/building_grid_utils.gd" id="9_rccsh"]
 [ext_resource type="Script" uid="uid://b6bcl1slrhxf2" path="res://scenes/level/buildings/data/building_data.gd" id="10_ax7ne"]
-[ext_resource type="Script" uid="uid://bsvwb03y27t7a" path="res://scripts/item.gd" id="11_m0xki"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="11_m0xki"]
 [ext_resource type="Script" uid="uid://dvsdgjr81g6k6" path="res://scenes/level/buildings/data/building_data_shop.gd" id="12_xe3hh"]
 [ext_resource type="Script" uid="uid://bjssiakt2chbg" path="res://scenes/level/buildings/data/building_data_destination.gd" id="13_xe3hh"]
 

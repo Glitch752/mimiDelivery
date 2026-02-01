@@ -59,3 +59,8 @@ func _physics_process(delta: float) -> void:
         particles.emitting = false
     
     move_and_slide()
+
+func open_minigame(minigame: PackedScene):
+    $%MinigameContainer.add_child(minigame.instantiate())
+    await minigame.finish
+    minigame.queue_free()
