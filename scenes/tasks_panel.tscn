@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dloew7jw5ysj0"]
+
+[ext_resource type="Script" uid="uid://di2via47btv1v" path="res://scripts/tasks_panel.gd" id="1_xwvrl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pplnk"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.3, 0.3, 0.3, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xwvrl"]
+font_size = 14
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3mbat"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pplnk"]
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+
+[node name="TasksPanel" type="PanelContainer" unique_id=463488195 node_paths=PackedStringArray("tasks_list")]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pplnk")
+script = ExtResource("1_xwvrl")
+task_label_settings = SubResource("LabelSettings_xwvrl")
+tasks_list = NodePath("MarginContainer/VBoxContainer/TasksList")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1972333235]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=527674968]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=138198003]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tasks:"
+label_settings = SubResource("LabelSettings_3mbat")
+
+[node name="TasksList" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=932327377]
+layout_mode = 2
+theme_override_constants/h_separation = 8
+columns = 4
+
+[node name="ItemReq" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=563775937]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Item"
+label_settings = SubResource("LabelSettings_pplnk")
+
+[node name="Quantity" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=1971185563]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quantity"
+label_settings = SubResource("LabelSettings_pplnk")
+
+[node name="Destination" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=2121593186]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Destination"
+label_settings = SubResource("LabelSettings_pplnk")
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=29282459]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Deliver By"
+label_settings = SubResource("LabelSettings_pplnk")
