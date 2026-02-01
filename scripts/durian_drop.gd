@@ -71,6 +71,7 @@ func _on_bucket_body_entered(body: Node2D) -> void:
         var i: int = active_durians.find(body)
         active_durians.remove_at(i)
         durian_forces.remove_at(i)
+        $durianCatched.play()
         body.queue_free()
 
 

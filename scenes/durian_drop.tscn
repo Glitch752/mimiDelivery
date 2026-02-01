@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://ddc235cop174a"]
+[gd_scene format=3 uid="uid://bewfhq1bspwu3"]
 
-[ext_resource type="Script" uid="uid://bovm5pyemmbon" path="res://scripts/durian_drop.gd" id="1_bdrpi"]
-[ext_resource type="PackedScene" uid="uid://7f5xtijfqwrk" path="res://scenes/dropped_durian.tscn" id="2_lw1w2"]
+[ext_resource type="Script" path="res://scripts/durian_drop.gd" id="1_bdrpi"]
+[ext_resource type="PackedScene" path="res://scenes/dropped_durian.tscn" id="2_lw1w2"]
+[ext_resource type="AudioStream" uid="uid://dlpuj6jcx42ic" path="res://Sounds/blahajCooked.ogg" id="3_lgn0k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdrpi"]
 size = Vector2(260, 20)
@@ -70,3 +71,7 @@ polygon = PackedVector2Array(-130, 36, -129, 17, -129, -145, 131, -145, 131, 23,
 wait_time = 5.0
 
 [node name="DurianTimer" type="Timer" parent="." unique_id=597588074]
+
+[node name="durianCatched" type="AudioStreamPlayer2D" parent="." unique_id=771969506]
+stream = ExtResource("3_lgn0k")
+volume_db = 1.733
