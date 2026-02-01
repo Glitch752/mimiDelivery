@@ -37,7 +37,7 @@ func generate_task() -> Task:
     var destination_data: BuildingData
     destination_data = MapData.building_data[destination_pos]
     
-    return Task.new(item, 1, destination_data.building_name, 360)
+    return Task.new(item, 1, destination_data.building_name, 10)
 
 
 ## Adds a task to tasks and displays it

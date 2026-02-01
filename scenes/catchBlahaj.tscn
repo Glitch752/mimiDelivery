@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cfic0od4syqc"]
 
 [ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="1_npdls"]
-[ext_resource type="Script" uid="uid://pmq54c5plqsl" path="res://scripts/catch_blahaj.gd" id="1_r1xx1"]
+[ext_resource type="Script" path="res://scripts/catch_blahaj.gd" id="1_r1xx1"]
 [ext_resource type="Texture2D" uid="uid://babkdhew4koa7" path="res://art/down.png" id="3_bj6kg"]
 
 [sub_resource type="Animation" id="Animation_r1xx1"]

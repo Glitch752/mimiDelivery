@@ -66,23 +66,24 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gff5m"]
 size = Vector2(5, 5)
 
-[sub_resource type="GDScript" id="GDScript_m4k3q"]
-script/source = "extends ColorRect
-
-func _init() -> void:
-    Engine.time_scale = 1.0
-
-func _on_button_pressed() -> void:
-    get_tree().paused = false
-    get_tree().change_scene_to_file(\"res://scenes/Menu.tscn\")
-"
-
 [sub_resource type="GDScript" id="GDScript_yxaod"]
 script/source = "extends Control
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
     $HBoxContainer/BlahajCount.text = str(InventoryItems.blahajs)
+"
+
+[sub_resource type="GDScript" id="GDScript_m4k3q"]
+script/source = "extends ColorRect
+
+func _init() -> void:
+    pass
+
+func _on_button_pressed() -> void:
+    print(\"go back\")
+    get_tree().paused = false
+    get_tree().change_scene_to_file(\"res://scenes/Menu.tscn\")
 "
 
 [node name="Mimi" type="Node2D" unique_id=831696364]
@@ -150,47 +151,6 @@ player = NodePath("../../../..")
 tasks_arrow = NodePath("../TasksPanel/TasksArrow")
 time_arrow = NodePath("../TimeDisplay/TimeArrow")
 
-[node name="LoseScreen" type="ColorRect" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1495757823]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0, 0.7490196)
-script = SubResource("GDScript_m4k3q")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen" unique_id=1345994502]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -162.0
-offset_top = -74.0
-offset_right = 162.0
-offset_bottom = 74.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer" unique_id=442108454]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("10_yxaod")
-theme_override_font_sizes/font_size = 100
-text = "You Lose!"
-
-[node name="Button" type="Button" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer" unique_id=1736762385]
-process_mode = 3
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("10_yxaod")
-theme_override_font_sizes/font_size = 40
-text = "Main Menu
-"
-
 [node name="Inventory" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=322861878]
 layout_mode = 1
 anchors_preset = 1
@@ -242,5 +202,45 @@ process_mode = 3
 visible = false
 layout_mode = 1
 player = NodePath("../../../..")
+
+[node name="LoseScreen" type="ColorRect" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1495757823]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.7490196)
+script = SubResource("GDScript_m4k3q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen" unique_id=1345994502]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -74.0
+offset_right = 162.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer" unique_id=442108454]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("10_yxaod")
+theme_override_font_sizes/font_size = 100
+text = "You Lose!"
+
+[node name="Button" type="Button" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer" unique_id=655235521]
+process_mode = 3
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_yxaod")
+theme_override_font_sizes/font_size = 35
+action_mode = 0
+text = "Main Menu"
 
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer/Button" to="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen" method="_on_button_pressed"]
