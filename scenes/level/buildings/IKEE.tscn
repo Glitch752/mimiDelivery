@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ckb1p54uwlcj4" path="res://scenes/level/buildings/BaseBuilding.tscn" id="1_kcngo"]
 [ext_resource type="Script" uid="uid://bsvwb03y27t7a" path="res://scripts/item.gd" id="2_3erja"]
+[ext_resource type="Script" uid="uid://c8f5lbkkerhg8" path="res://scenes/level/buildings/ikee.gd" id="2_mqtb5"]
 [ext_resource type="Script" uid="uid://dvsdgjr81g6k6" path="res://scenes/level/buildings/data/building_data_shop.gd" id="3_3erja"]
 
 [sub_resource type="Resource" id="Resource_mqtb5"]
@@ -28,6 +29,7 @@ size = Vector2(56, 55)
 size = Vector2(63, 65)
 
 [node name="IKEA" unique_id=583408200 instance=ExtResource("1_kcngo")]
+script = ExtResource("2_mqtb5")
 tile_size = Vector2i(2, 2)
 building_data = SubResource("Resource_25g1l")
 

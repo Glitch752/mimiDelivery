@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.36666667, 0.76666665),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(117, 152), Vector2(322, 152), Vector2(117, 152)]
+"values": [Vector2(-100, 30), Vector2(100, 30), Vector2(-100, 30)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -80,34 +80,35 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(1, 0)
 script = ExtResource("1_r1xx1")
 
 [node name="Panel" type="Panel" parent="." unique_id=1399213923]
 layout_mode = 1
-offset_left = 90.0
-offset_top = 62.0
-offset_right = 350.0
-offset_bottom = 176.0
+offset_left = -129.0
+offset_top = -57.0
+offset_right = 131.0
+offset_bottom = 57.0
 
 [node name="Label2" type="Label" parent="." unique_id=1360168519]
 layout_mode = 0
-offset_left = 159.0
-offset_top = 65.0
-offset_right = 281.0
-offset_bottom = 88.0
+offset_left = -60.0
+offset_top = -54.0
+offset_right = 62.0
+offset_bottom = -31.0
 text = "Press P to catch"
 
 [node name="Label" type="Label" parent="." unique_id=1227847824]
 layout_mode = 0
-offset_left = 216.0
-offset_top = 146.0
-offset_right = 226.0
-offset_bottom = 169.0
+offset_left = -3.0
+offset_top = 27.0
+offset_right = 7.0
+offset_bottom = 50.0
 theme_override_font_sizes/font_size = 11
 text = "+"
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="." unique_id=316984141 groups=["blahaj"]]
-position = Vector2(117, 152)
+position = Vector2(-100, 30)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D" unique_id=1146835360]
 root_node = NodePath("../CollisionShape2D")
@@ -122,22 +123,23 @@ position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_u2nqs")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=503733579]
+position = Vector2(-219, -119)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1298169587]
 position = Vector2(219, 154)
 shape = SubResource("RectangleShape2D_2itnl")
 
 [node name="Down" type="Sprite2D" parent="." unique_id=465337566]
-position = Vector2(218.99998, 109.99999)
+position = Vector2(-4.5776367e-05, -9.000023)
 scale = Vector2(0.030371103, 0.030371103)
 texture = ExtResource("3_bj6kg")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1179815124]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 54.0
-offset_right = 349.0
-offset_bottom = 61.0
+offset_left = -129.0
+offset_top = -65.0
+offset_right = 130.0
+offset_bottom = -58.0
 max_value = 5.0
 value = 5.0
 show_percentage = false
