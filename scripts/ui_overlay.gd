@@ -5,6 +5,6 @@ extends Control
 
 
 func _ready() -> void:
-	size = get_viewport_rect().size
-	scale = Vector2(1.0 / camera.zoom.x, 1.0 / camera.zoom.y)
-	position = -(size / 2.0) / camera.zoom
+    size = get_viewport_rect().size
+    scale = Vector2(1.0 / camera.zoom.x, 1.0 / camera.zoom.y)
+    position = -(size / 2.0) / camera.zoom

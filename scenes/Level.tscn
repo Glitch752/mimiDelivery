@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://dkmdre5twhdu6"]
 
-[ext_resource type="Script" uid="uid://cjque7d2au81j" path="res://scenes/level.gd" id="1_uhqny"]
 [ext_resource type="Texture2D" uid="uid://d1phcyais2y3x" path="res://art/map/template.png" id="2_6vs76"]
 [ext_resource type="Script" uid="uid://42hcv00klol8" path="res://scenes/level/road_generation.gd" id="3_faw0r"]
 [ext_resource type="PackedScene" uid="uid://bmjufwhraqdtj" path="res://scenes/level/buildings/IKEE.tscn" id="3_kl8ac"]
@@ -9,11 +8,28 @@
 [ext_resource type="PackedScene" uid="uid://cj2icpvoplg7o" path="res://scenes/level/buildings/EmptyTree.tscn" id="5_dke22"]
 [ext_resource type="PackedScene" uid="uid://dwk13wt5vdk6n" path="res://scenes/level/buildings/J8.tscn" id="6_4qegb"]
 [ext_resource type="PackedScene" uid="uid://3jtirvh8swdx" path="res://scenes/level/buildings/CatHome.tscn" id="8_2eouu"]
-[ext_resource type="Script" uid="uid://boypkrxtchbfp" path="res://scenes/building_grid_utils.gd" id="9_rccsh"]
 [ext_resource type="Script" uid="uid://b6bcl1slrhxf2" path="res://scenes/level/buildings/data/building_data.gd" id="10_ax7ne"]
 [ext_resource type="Script" uid="uid://bsvwb03y27t7a" path="res://scripts/item.gd" id="11_m0xki"]
 [ext_resource type="Script" uid="uid://dvsdgjr81g6k6" path="res://scenes/level/buildings/data/building_data_shop.gd" id="12_xe3hh"]
+[ext_resource type="Texture2D" uid="uid://xllxi6q6nwos" path="res://art/minimap_frame_background.png" id="13_opqd1"]
+[ext_resource type="Texture2D" uid="uid://ckd3mu10naw8y" path="res://art/mimiicon-1.png.png" id="13_p6oy6"]
 [ext_resource type="Script" uid="uid://bjssiakt2chbg" path="res://scenes/level/buildings/data/building_data_destination.gd" id="13_xe3hh"]
+[ext_resource type="Script" uid="uid://ltpgw47uk5lo" path="res://scripts/minimap.gd" id="15_p6oy6"]
+[ext_resource type="Texture2D" uid="uid://3qybvbjv7k5n" path="res://art/minimap_frame.png" id="16_xyj84"]
+
+[sub_resource type="GDScript" id="GDScript_m0xki"]
+script/source = "@tool
+
+extends Node2D
+
+@export_tool_button(\"Generate map\")
+var generate_map = _generate_map
+
+@export var map_size: Vector2i = Vector2i.ONE * 20
+
+func _generate_map():
+    pass
+"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl8ac"]
 texture = ExtResource("2_6vs76")
@@ -42,22 +58,18 @@ scenes/5/scene = ExtResource("8_2eouu")
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetScenesCollectionSource_kl8ac")
 
-[sub_resource type="Resource" id="Resource_mqtb5"]
-script = ExtResource("11_m0xki")
-item_name = &"blahaj"
-metadata/_custom_type_script = "uid://bsvwb03y27t7a"
+[sub_resource type="GDScript" id="GDScript_xe3hh"]
+script/source = "@tool
 
 [sub_resource type="Resource" id="Resource_25g1l"]
 script = ExtResource("12_xe3hh")
 items = Array[ExtResource("11_m0xki")]([SubResource("Resource_mqtb5")])
 building_name = "IKEE"
 metadata/_custom_type_script = "uid://dvsdgjr81g6k6"
+extends TileMapLayer
 
-[sub_resource type="Resource" id="Resource_cr4g7"]
-script = ExtResource("10_ax7ne")
-purpose = 3
-building_name = "MRT"
-metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
+@export_tool_button(\"Generate building data\")
+var assign_addresses = _assign_addresses
 
 [sub_resource type="Resource" id="Resource_xe3hh"]
 script = ExtResource("13_xe3hh")
@@ -72,6 +84,44 @@ address = 965438
 purpose = 1
 building_name = "Cat Home #965438"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
+@export_tool_button(\"Pregenerate building map\")
+var pregenerate_building_map = _pregenerate_building_map
+
+@export var building_data: Dictionary[Vector2i, BuildingData]
+## Dictionary[MapData.BuildingPurpose, Array[Vector2i]]
+@export var buildings: Dictionary[MapData.BuildingPurpose, Array]
+
+func _ready():
+    if not Engine.is_editor_hint():
+        MapData.building_data = building_data
+        MapData.buildings = buildings
+
+func _assign_addresses():
+    building_data = {}
+
+    var used_ids = []
+    for building in get_children():
+        var id = randi() % 999999 + 1
+        while id in used_ids:
+            id = randi() % 999999 + 1
+        used_ids.append(id)
+
+        building_data[building.get_tile_position()] = building.get_building_data(id)
+
+
+func _pregenerate_building_map():
+    buildings = {}
+    for purpose in MapData.BuildingPurpose.values():
+        buildings[purpose] = []
+
+    for building in get_children():
+        if building is Node2D:
+            var bldg: Node2D = building
+            if bldg.has_method(\"get_tile_position\"):
+                var pos: Vector2i = bldg.get_tile_position()
+                var purpose: MapData.BuildingPurpose = bldg.building_data.purpose
+                buildings[purpose].append(pos)
+"
 
 [sub_resource type="Resource" id="Resource_gmhdv"]
 script = ExtResource("10_ax7ne")
@@ -386,8 +436,332 @@ purpose = 1
 building_name = "Cat Home #801854"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
+[sub_resource type="Resource" id="Resource_ob73l"]
+script = ExtResource("13_xe3hh")
+address = 165878
+purpose = 1
+building_name = "Cat Home #165878"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_k5548"]
+script = ExtResource("13_xe3hh")
+address = 416289
+purpose = 1
+building_name = "Cat Home #416289"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_pl6yh"]
+script = ExtResource("13_xe3hh")
+address = 816567
+purpose = 1
+building_name = "Cat Home #816567"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gkvn1"]
+script = ExtResource("13_xe3hh")
+address = 353621
+purpose = 1
+building_name = "Cat Home #353621"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_rcwq3"]
+script = ExtResource("13_xe3hh")
+address = 698123
+purpose = 1
+building_name = "Cat Home #698123"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_unn01"]
+script = ExtResource("13_xe3hh")
+address = 113213
+purpose = 1
+building_name = "Cat Home #113213"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_vgtnl"]
+script = ExtResource("13_xe3hh")
+address = 206818
+purpose = 1
+building_name = "Cat Home #206818"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gi26r"]
+script = ExtResource("13_xe3hh")
+address = 431182
+purpose = 1
+building_name = "Cat Home #431182"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ayxsy"]
+script = ExtResource("13_xe3hh")
+address = 700874
+purpose = 1
+building_name = "Cat Home #700874"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_dcwjr"]
+script = ExtResource("13_xe3hh")
+address = 273860
+purpose = 1
+building_name = "Cat Home #273860"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_b38xg"]
+script = ExtResource("13_xe3hh")
+address = 626986
+purpose = 1
+building_name = "Cat Home #626986"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_83eg4"]
+script = ExtResource("13_xe3hh")
+address = 811626
+purpose = 1
+building_name = "Cat Home #811626"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ru7rm"]
+script = ExtResource("13_xe3hh")
+address = 30026
+purpose = 1
+building_name = "Cat Home #30026"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gooay"]
+script = ExtResource("13_xe3hh")
+address = 40439
+purpose = 1
+building_name = "Cat Home #40439"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_mbj8a"]
+script = ExtResource("13_xe3hh")
+address = 236352
+purpose = 1
+building_name = "Cat Home #236352"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_p6oy6"]
+script = ExtResource("13_xe3hh")
+address = 358522
+purpose = 1
+building_name = "Cat Home #358522"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_2sboe"]
+script = ExtResource("13_xe3hh")
+address = 169515
+purpose = 1
+building_name = "Cat Home #169515"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_cr4g7"]
+script = ExtResource("10_ax7ne")
+purpose = 3
+building_name = "MRT"
+metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
+
+[sub_resource type="Resource" id="Resource_baq46"]
+script = ExtResource("13_xe3hh")
+address = 762990
+purpose = 1
+building_name = "Cat Home #762990"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_nbaxu"]
+script = ExtResource("13_xe3hh")
+address = 841723
+purpose = 1
+building_name = "Cat Home #841723"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_nu2gi"]
+script = ExtResource("13_xe3hh")
+address = 822641
+purpose = 1
+building_name = "Cat Home #822641"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_jua6w"]
+script = ExtResource("13_xe3hh")
+address = 233377
+purpose = 1
+building_name = "Cat Home #233377"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_0jhie"]
+script = ExtResource("10_ax7ne")
+purpose = 0
+building_name = "J67"
+metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
+
+[sub_resource type="Resource" id="Resource_mqtb5"]
+script = ExtResource("11_m0xki")
+item_name = &"blahaj"
+metadata/_custom_type_script = "uid://bsvwb03y27t7a"
+
+[sub_resource type="Resource" id="Resource_25g1l"]
+script = ExtResource("12_xe3hh")
+items = Array[ExtResource("11_m0xki")]([SubResource("Resource_mqtb5")])
+purpose = 0
+building_name = "IKEE"
+metadata/_custom_type_script = "uid://dvsdgjr81g6k6"
+
+[sub_resource type="Resource" id="Resource_70b58"]
+script = ExtResource("13_xe3hh")
+address = 892580
+purpose = 1
+building_name = "Cat Home #892580"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ycrer"]
+script = ExtResource("13_xe3hh")
+address = 423412
+purpose = 1
+building_name = "Cat Home #423412"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_0dkw0"]
+script = ExtResource("13_xe3hh")
+address = 773162
+purpose = 1
+building_name = "Cat Home #773162"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_kja0s"]
+script = ExtResource("13_xe3hh")
+address = 698560
+purpose = 1
+building_name = "Cat Home #698560"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_4no8g"]
+script = ExtResource("13_xe3hh")
+address = 732556
+purpose = 1
+building_name = "Cat Home #732556"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_itu0t"]
+script = ExtResource("13_xe3hh")
+address = 650631
+purpose = 1
+building_name = "Cat Home #650631"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_48r4s"]
+script = ExtResource("13_xe3hh")
+address = 118324
+purpose = 1
+building_name = "Cat Home #118324"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_p3doa"]
+script = ExtResource("13_xe3hh")
+address = 405804
+purpose = 1
+building_name = "Cat Home #405804"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_u2nc6"]
+script = ExtResource("13_xe3hh")
+address = 904725
+purpose = 1
+building_name = "Cat Home #904725"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_xe3hh"]
+script = ExtResource("13_xe3hh")
+address = 288425
+purpose = 1
+building_name = "Cat Home #288425"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_kflc5"]
+script = ExtResource("13_xe3hh")
+address = 678590
+purpose = 1
+building_name = "Cat Home #678590"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_witbp"]
+script = ExtResource("13_xe3hh")
+address = 933750
+purpose = 1
+building_name = "Cat Home #933750"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_sv6t6"]
+script = ExtResource("13_xe3hh")
+address = 925844
+purpose = 1
+building_name = "Cat Home #925844"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_vs87s"]
+script = ExtResource("13_xe3hh")
+address = 610835
+purpose = 1
+building_name = "Cat Home #610835"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_0akr6"]
+script = ExtResource("13_xe3hh")
+address = 298512
+purpose = 1
+building_name = "Cat Home #298512"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_40jy2"]
+script = ExtResource("13_xe3hh")
+address = 937665
+purpose = 1
+building_name = "Cat Home #937665"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_iw3v5"]
+script = ExtResource("13_xe3hh")
+address = 937285
+purpose = 1
+building_name = "Cat Home #937285"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_wsd7d"]
+script = ExtResource("13_xe3hh")
+address = 488714
+purpose = 1
+building_name = "Cat Home #488714"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gips2"]
+script = ExtResource("13_xe3hh")
+address = 151773
+purpose = 1
+building_name = "Cat Home #151773"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_xyj84"]
+script = ExtResource("13_xe3hh")
+address = 137381
+purpose = 1
+building_name = "Cat Home #137381"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_opqd1"]
+script = ExtResource("13_xe3hh")
+address = 212099
+purpose = 1
+building_name = "Cat Home #212099"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_opqd1"]
+texture = ExtResource("13_opqd1")
+
 [node name="Level" type="Node2D" unique_id=875250379]
-script = ExtResource("1_uhqny")
+visibility_layer = 5
+script = SubResource("GDScript_m0xki")
+metadata/_edit_vertical_guides_ = [1903.0, 1639.0]
+metadata/_edit_horizontal_guides_ = [282.0, 18.0]
 
 [node name="RoadGrid" type="TileMapLayer" parent="." unique_id=1277065790 node_paths=PackedStringArray("building_grid")]
 texture_filter = 1
@@ -403,7 +777,7 @@ position = Vector2(32, 32)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD///7/AQAAAAAAAQD+/wAAAQAAAAAAAgABAAAAAQAAAAAAAgACAPz/AQAAAAAABQD8//v/AQAAAAAABQACAAMAAQAAAAAAAwAAAAEAAQAAAAAAAwADAAMAAQAAAAAAAwADAAIAAQAAAAAAAwADAAEAAQAAAAAABQADAAAAAQAAAAAABQADAP//AQAAAAAABQADAP7/AQAAAAAABQADAP3/AQAAAAAABQADAPz/AQAAAAAABQADAPv/AQAAAAAABQACAPv/AQAAAAAABQD9//z/AQAAAAAAAwD9//3/AQAAAAAAAwD9//7/AQAAAAAAAwD9/wAAAQAAAAAAAwD9/wEAAQAAAAAAAQD8/wEAAQAAAAAAAwD//wEAAQAAAAAAAwD//wIAAQAAAAAAAwAAAAIAAQAAAAAAAwABAAEAAQAAAAAAAwACAAEAAQAAAAAAAwACAAAAAQAAAAAABQACAP//AQAAAAAABQACAP7/AQAAAAAABQACAP3/AQAAAAAABQABAP3/AQAAAAAABQAAAP3/AQAAAAAABQD///3/AQAAAAAABQD+//3/AQAAAAAAAwABAP7/AQAAAAAABQABAP//AQAAAAAABQD//wAAAQAAAAAABAD+//7/AQAAAAAAAwD8//z/AQAAAAAABQD8//3/AQAAAAAAAgD8//7/AQAAAAAAAwD8////AQAAAAAAAwD8/wAAAQAAAAAAAwD8/wIAAQAAAAAABQD8/wMAAQAAAAAABQD9/wMAAQAAAAAAAwD+/wMAAQAAAAAAAwD//wMAAQAAAAAAAwAAAAMAAQAAAAAAAwABAAMAAQAAAAAAAwAAAPv/AQAAAAAAAQD9////AQAAAAAABAABAAIAAQAAAAAABAD8/wQAAQAAAAAABQD9/wQAAQAAAAAABQD+/wQAAQAAAAAAAgD+/wUAAQAAAAAABQD9/wUAAQAAAAAABQD8/wUAAQAAAAAABQD7/wUAAQAAAAAABQD7/wQAAQAAAAAABQD6/wQAAQAAAAAABQD6/wMAAQAAAAAABQD6/wIAAQAAAAAABQD6/wEAAQAAAAAABQD7/wEAAQAAAAAABQD7/wIAAQAAAAAABQD7/wMAAQAAAAAAAgD7//7/AQAAAAAABQD7//3/AQAAAAAABQD7//z/AQAAAAAABQD8//r/AQAAAAAABQD7//r/AQAAAAAABQD7//v/AQAAAAAABQD6//v/AQAAAAAABQD6//z/AQAAAAAABQD6//3/AQAAAAAABQD6//7/AQAAAAAABQD6////AQAAAAAAAwD6/wUAAQAAAAAAAwD6/wAAAQAAAAAAAwD7////AQAAAAAAAwD7/wAAAQAAAAAAAwD6//r/AQAAAAAAAwD///r/AQAAAAAAAwAAAPr/AQAAAAAAAwABAPr/AQAAAAAAAwACAPr/AQAAAAAAAwADAPr/AQAAAAAAAwAEAPr/AQAAAAAAAwAEAPv/AQAAAAAAAgAEAPz/AQAAAAAAAwAEAP3/AQAAAAAAAwAEAP7/AQAAAAAAAwAEAP//AQAAAAAAAwAEAAAAAQAAAAAAAwAEAAEAAQAAAAAAAwAEAAIAAQAAAAAAAwAEAAMAAQAAAAAAAgAEAAQAAQAAAAAAAwADAAQAAQAAAAAAAwACAAQAAQAAAAAAAwABAAQAAQAAAAAAAwAAAAQAAQAAAAAAAwD//wQAAQAAAAAAAwD//wUAAQAAAAAAAwAAAAUAAQAAAAAAAwABAAUAAQAAAAAAAgACAAUAAQAAAAAAAwADAAUAAQAAAAAAAwAEAAUAAQAAAAAAAwAFAAUAAQAAAAAAAwAFAAQAAQAAAAAAAwAFAAMAAQAAAAAAAwAFAAIAAQAAAAAAAwAFAAEAAQAAAAAAAwAFAAAAAQAAAAAAAwAFAP//AQAAAAAAAwAFAP7/AQAAAAAAAwAFAP3/AQAAAAAAAwAFAPz/AQAAAAAAAwAFAPv/AQAAAAAAAwAFAPr/AQAAAAAAAwAFAPn/AQAAAAAAAwAEAPn/AQAAAAAAAwADAPn/AQAAAAAAAwACAPn/AQAAAAAAAgABAPn/AQAAAAAAAwAAAPn/AQAAAAAAAwD///n/AQAAAAAAAwD+//n/AQAAAAAAAgD9//n/AQAAAAAAAwD8//n/AQAAAAAAAwD7//n/AQAAAAAAAwD6//n/AQAAAAAAAwD9//r/AQAAAAAAAQD///v/AQAAAAAAAgD+//z/AQAAAAAAAwD///z/AQAAAAAAAwA=")
 tile_set = SubResource("TileSet_6vs76")
-script = ExtResource("9_rccsh")
+script = SubResource("GDScript_xe3hh")
 building_data = Dictionary[Vector2i, ExtResource("10_ax7ne")]({
 Vector2i(-6, -7): SubResource("Resource_gmhdv"),
 Vector2i(-6, -6): SubResource("Resource_gmhdv"),
@@ -557,3 +931,45 @@ buildings = Dictionary[int, Array]({
 [node name="Mimi" parent="." unique_id=831696364 instance=ExtResource("4_kl8ac")]
 z_as_relative = false
 position = Vector2(-5, 34)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1816034904]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1189794036]
+clip_children = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -276.0
+offset_top = 21.0
+offset_right = -20.0
+offset_bottom = 277.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_opqd1")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/PanelContainer" unique_id=1132971130]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/PanelContainer/SubViewportContainer" unique_id=957361270 node_paths=PackedStringArray("cameraNode", "playerNode")]
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+script = ExtResource("15_p6oy6")
+cameraNode = NodePath("Camera2D")
+playerNode = NodePath("../../../../Mimi/Player")
+
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer/PanelContainer/SubViewportContainer/SubViewport" unique_id=1917147209]
+visibility_layer = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/PanelContainer" unique_id=1577021811]
+layout_mode = 2
+texture = ExtResource("16_xyj84")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=2015587974]
+offset_left = 1642.0
+offset_top = 168.0
+offset_right = 1898.0
+offset_bottom = 200.0
+size_flags_vertical = 4
+texture = ExtResource("13_p6oy6")
+stretch_mode = 3
