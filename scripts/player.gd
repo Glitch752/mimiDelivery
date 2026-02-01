@@ -63,14 +63,10 @@ func _physics_process(delta: float) -> void:
 var minigame_open = false
 
 func open_minigame(minigame: PackedScene):
-    if minigame_open:
+    if $%MinigameContainer.get_child_count() > 0:
         return
     
-    minigame_open = true
-
     var scene = minigame.instantiate()
     $%MinigameContainer.add_child(scene)
     await scene.finish
     scene.queue_free()
-
-    minigame_open = false
