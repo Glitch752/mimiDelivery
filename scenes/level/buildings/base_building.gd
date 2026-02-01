@@ -10,11 +10,10 @@ extends Node2D
 
 @export var tile_size: Vector2i = Vector2i.ONE
 
-## The purpose of this building
-@export var purpose: MapData.BuildingPurpose
-## The items this shop can give if it is a shop
-@export var items: Array[Item]
+@export var building_data: BuildingData
 
+func get_building_data(_id: int) -> BuildingData:
+    return building_data
 
 func get_tile_position() -> Vector2i:
     var tilemap: TileMapLayer = get_parent()

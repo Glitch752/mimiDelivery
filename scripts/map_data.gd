@@ -7,7 +7,7 @@ enum BuildingPurpose {
     MRT,
 }
 
-var house_addresses: Dictionary[Vector2i, int]
+var building_data: Dictionary[Vector2i, BuildingData]
 
 ## Dictionary[BuildingPurpose, Array[Vector2i]]
 var buildings: Dictionary[BuildingPurpose, Array]

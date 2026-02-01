@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://ckb1p54uwlcj4"]
 
 [ext_resource type="Script" uid="uid://twk0gtqnqwp0" path="res://scenes/level/buildings/base_building.gd" id="1_y5dye"]
+[ext_resource type="Script" uid="uid://b6bcl1slrhxf2" path="res://scenes/level/buildings/data/building_data.gd" id="2_0h08y"]
+
+[sub_resource type="Resource" id="Resource_jr82w"]
+script = ExtResource("2_0h08y")
+purpose = 2
+metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y5dye"]
 size = Vector2(24, 31)
@@ -11,6 +17,7 @@ size = Vector2(24, 23)
 [node name="BaseBuilding" type="Node2D" unique_id=583408200]
 z_index = 3
 script = ExtResource("1_y5dye")
+building_data = SubResource("Resource_jr82w")
 
 [node name="HideArea" type="Area2D" parent="." unique_id=1367318042]
 

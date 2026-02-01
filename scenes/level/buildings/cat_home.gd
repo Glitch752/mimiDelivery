@@ -7,5 +7,16 @@ func _ready():
         update_label()
 
 func update_label():
-    var padded_address = str(MapData.house_addresses.get(get_tile_position())).pad_zeros(6)
+    print(MapData.building_data)
+    var data = MapData.building_data.get(get_tile_position())
+    if data == null:
+        push_error("Building data not found for building at position %s" % get_tile_position())
+        return
+    
+    var padded_address = str(data.address).pad_zeros(6)
     $%AddressLabel.text = "Singapurr Residence\n#%s" % padded_address
+
+func get_building_data(id: int) -> BuildingData:
+    var data: BuildingData_Destination = building_data.duplicate()
+    data.address = id
+    return data

@@ -2,7 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://ckb1p54uwlcj4" path="res://scenes/level/buildings/BaseBuilding.tscn" id="1_kcngo"]
 [ext_resource type="Script" uid="uid://bsvwb03y27t7a" path="res://scripts/item.gd" id="2_3erja"]
-[ext_resource type="Resource" uid="uid://k6kjnly2mrp8" path="res://items/blahaj.tres" id="3_mqtb5"]
+[ext_resource type="Script" uid="uid://dvsdgjr81g6k6" path="res://scenes/level/buildings/data/building_data_shop.gd" id="3_3erja"]
+
+[sub_resource type="Resource" id="Resource_mqtb5"]
+script = ExtResource("2_3erja")
+item_name = &"blahaj"
+metadata/_custom_type_script = "uid://bsvwb03y27t7a"
+
+[sub_resource type="Resource" id="Resource_25g1l"]
+script = ExtResource("3_3erja")
+items = Array[ExtResource("2_3erja")]([SubResource("Resource_mqtb5")])
+metadata/_custom_type_script = "uid://dvsdgjr81g6k6"
 
 [sub_resource type="LabelSettings" id="LabelSettings_8sppw"]
 font_size = 800
@@ -19,7 +29,7 @@ size = Vector2(63, 65)
 
 [node name="IKEA" unique_id=583408200 instance=ExtResource("1_kcngo")]
 tile_size = Vector2i(2, 2)
-items = Array[ExtResource("2_3erja")]([ExtResource("3_mqtb5")])
+building_data = SubResource("Resource_25g1l")
 
 [node name="ColorRect" type="ColorRect" parent="." index="0" unique_id=927308634]
 offset_left = -12.0

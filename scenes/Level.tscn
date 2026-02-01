@@ -10,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://dwk13wt5vdk6n" path="res://scenes/level/buildings/J8.tscn" id="6_4qegb"]
 [ext_resource type="PackedScene" uid="uid://3jtirvh8swdx" path="res://scenes/level/buildings/CatHome.tscn" id="8_2eouu"]
 [ext_resource type="Script" uid="uid://boypkrxtchbfp" path="res://scenes/building_grid_utils.gd" id="9_rccsh"]
+[ext_resource type="Script" uid="uid://b6bcl1slrhxf2" path="res://scenes/level/buildings/data/building_data.gd" id="10_ax7ne"]
+[ext_resource type="Script" uid="uid://bsvwb03y27t7a" path="res://scripts/item.gd" id="11_m0xki"]
+[ext_resource type="Script" uid="uid://dvsdgjr81g6k6" path="res://scenes/level/buildings/data/building_data_shop.gd" id="12_xe3hh"]
+[ext_resource type="Script" uid="uid://bjssiakt2chbg" path="res://scenes/level/buildings/data/building_data_destination.gd" id="13_xe3hh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kl8ac"]
 texture = ExtResource("2_6vs76")
@@ -38,6 +42,302 @@ scenes/5/scene = ExtResource("8_2eouu")
 tile_size = Vector2i(32, 32)
 sources/1 = SubResource("TileSetScenesCollectionSource_kl8ac")
 
+[sub_resource type="Resource" id="Resource_jr82w"]
+script = ExtResource("10_ax7ne")
+purpose = 2
+metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
+
+[sub_resource type="Resource" id="Resource_xoajd"]
+script = ExtResource("13_xe3hh")
+address = 797328
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_rvbj1"]
+script = ExtResource("13_xe3hh")
+address = 796231
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_il38x"]
+script = ExtResource("13_xe3hh")
+address = 309286
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_2gdwi"]
+script = ExtResource("13_xe3hh")
+address = 775261
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_dcwjr"]
+script = ExtResource("13_xe3hh")
+address = 2203
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ob73l"]
+script = ExtResource("13_xe3hh")
+address = 128679
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_k5548"]
+script = ExtResource("13_xe3hh")
+address = 623931
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_pl6yh"]
+script = ExtResource("13_xe3hh")
+address = 863725
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_unn01"]
+script = ExtResource("13_xe3hh")
+address = 591712
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_3yv64"]
+script = ExtResource("13_xe3hh")
+address = 776544
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_mbj8a"]
+script = ExtResource("13_xe3hh")
+address = 829980
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_vgtnl"]
+script = ExtResource("13_xe3hh")
+address = 21904
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gi26r"]
+script = ExtResource("13_xe3hh")
+address = 687864
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_b38xg"]
+script = ExtResource("13_xe3hh")
+address = 734522
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_83eg4"]
+script = ExtResource("13_xe3hh")
+address = 336705
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ayxsy"]
+script = ExtResource("13_xe3hh")
+address = 643084
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gkvn1"]
+script = ExtResource("13_xe3hh")
+address = 433219
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ru7rm"]
+script = ExtResource("13_xe3hh")
+address = 130399
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_rcwq3"]
+script = ExtResource("13_xe3hh")
+address = 864170
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_opqd1"]
+script = ExtResource("13_xe3hh")
+address = 283057
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_baq46"]
+script = ExtResource("13_xe3hh")
+address = 291396
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_cr4g7"]
+script = ExtResource("10_ax7ne")
+purpose = 3
+metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
+
+[sub_resource type="Resource" id="Resource_nbaxu"]
+script = ExtResource("13_xe3hh")
+address = 806303
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_nu2gi"]
+script = ExtResource("13_xe3hh")
+address = 147238
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_70b58"]
+script = ExtResource("13_xe3hh")
+address = 341735
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gooay"]
+script = ExtResource("13_xe3hh")
+address = 433157
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_mqtb5"]
+script = ExtResource("11_m0xki")
+item_name = &"blahaj"
+metadata/_custom_type_script = "uid://bsvwb03y27t7a"
+
+[sub_resource type="Resource" id="Resource_25g1l"]
+script = ExtResource("12_xe3hh")
+items = Array[ExtResource("11_m0xki")]([SubResource("Resource_mqtb5")])
+metadata/_custom_type_script = "uid://dvsdgjr81g6k6"
+
+[sub_resource type="Resource" id="Resource_0dkw0"]
+script = ExtResource("13_xe3hh")
+address = 718931
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_jua6w"]
+script = ExtResource("13_xe3hh")
+address = 972486
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ycrer"]
+script = ExtResource("13_xe3hh")
+address = 616548
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_48r4s"]
+script = ExtResource("13_xe3hh")
+address = 595170
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_kja0s"]
+script = ExtResource("13_xe3hh")
+address = 326117
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_4no8g"]
+script = ExtResource("13_xe3hh")
+address = 6508
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_p3doa"]
+script = ExtResource("13_xe3hh")
+address = 186147
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_2sboe"]
+script = ExtResource("13_xe3hh")
+address = 295262
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_vs87s"]
+script = ExtResource("13_xe3hh")
+address = 432210
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_p6oy6"]
+script = ExtResource("13_xe3hh")
+address = 928031
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_itu0t"]
+script = ExtResource("13_xe3hh")
+address = 621857
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_kflc5"]
+script = ExtResource("13_xe3hh")
+address = 280504
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_witbp"]
+script = ExtResource("13_xe3hh")
+address = 421760
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_sv6t6"]
+script = ExtResource("13_xe3hh")
+address = 34017
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_u2nc6"]
+script = ExtResource("13_xe3hh")
+address = 674202
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_0akr6"]
+script = ExtResource("13_xe3hh")
+address = 678249
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_40jy2"]
+script = ExtResource("13_xe3hh")
+address = 647686
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_iw3v5"]
+script = ExtResource("13_xe3hh")
+address = 48168
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_wsd7d"]
+script = ExtResource("13_xe3hh")
+address = 447200
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gips2"]
+script = ExtResource("13_xe3hh")
+address = 914395
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_xyj84"]
+script = ExtResource("13_xe3hh")
+address = 127236
+purpose = 1
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
 [node name="Level" type="Node2D" unique_id=875250379]
 script = ExtResource("1_uhqny")
 
@@ -56,58 +356,153 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD///7/AQAAAAAAAQD+/wAAAQAAAAAAAgABAAAAAQAAAAAAAgACAPz/AQAAAAAABQD8//v/AQAAAAAABQACAAMAAQAAAAAAAgAAAAEAAQAAAAAAAwADAAMAAQAAAAAAAwADAAIAAQAAAAAAAwADAAEAAQAAAAAABQADAAAAAQAAAAAABQADAP//AQAAAAAABQADAP7/AQAAAAAABQADAP3/AQAAAAAABQADAPz/AQAAAAAABQADAPv/AQAAAAAABQACAPv/AQAAAAAABQD9//v/AQAAAAAAAwD9//z/AQAAAAAAAwD9//3/AQAAAAAAAwD9//7/AQAAAAAAAwD9/wAAAQAAAAAAAwD9/wEAAQAAAAAAAQD8/wEAAQAAAAAAAwD//wEAAQAAAAAAAwD//wIAAQAAAAAAAwAAAAIAAQAAAAAAAwABAAEAAQAAAAAAAwACAAEAAQAAAAAAAwACAAAAAQAAAAAABQACAP//AQAAAAAABQACAP7/AQAAAAAABQACAP3/AQAAAAAABQABAP3/AQAAAAAABQAAAP3/AQAAAAAABQD///3/AQAAAAAABQD+//3/AQAAAAAAAwABAP7/AQAAAAAABQABAP//AQAAAAAABQD//wAAAQAAAAAABAD+//7/AQAAAAAAAwD8//z/AQAAAAAABQD8//3/AQAAAAAAAgD8//7/AQAAAAAAAwD8////AQAAAAAAAwD8/wAAAQAAAAAAAwD8/wIAAQAAAAAABQD8/wMAAQAAAAAABQD9/wMAAQAAAAAAAwD+/wMAAQAAAAAAAwD//wMAAQAAAAAAAwAAAAMAAQAAAAAAAwABAAMAAQAAAAAAAwD+//v/AQAAAAAAAQAAAPv/AQAAAAAAAQD9////AQAAAAAABAABAAIAAQAAAAAABAD8/wQAAQAAAAAABQD9/wQAAQAAAAAABQD+/wQAAQAAAAAAAwD+/wUAAQAAAAAABQD9/wUAAQAAAAAABQD8/wUAAQAAAAAABQD7/wUAAQAAAAAABQD7/wQAAQAAAAAABQD6/wQAAQAAAAAABQD6/wMAAQAAAAAABQD6/wIAAQAAAAAABQD6/wEAAQAAAAAABQD7/wEAAQAAAAAABQD7/wIAAQAAAAAABQD7/wMAAQAAAAAABQD7//7/AQAAAAAABQD7//3/AQAAAAAABQD7//z/AQAAAAAABQD8//r/AQAAAAAABQD7//r/AQAAAAAABQD7//v/AQAAAAAABQD6//v/AQAAAAAABQD6//z/AQAAAAAABQD6//3/AQAAAAAABQD6//7/AQAAAAAABQD6////AQAAAAAAAwD6/wUAAQAAAAAAAwD6/wAAAQAAAAAAAwD7////AQAAAAAAAwD7/wAAAQAAAAAAAwD6//r/AQAAAAAAAwD9//r/AQAAAAAAAwD+//r/AQAAAAAAAwD///r/AQAAAAAAAwAAAPr/AQAAAAAAAwABAPr/AQAAAAAAAwACAPr/AQAAAAAAAwADAPr/AQAAAAAAAwAEAPr/AQAAAAAAAwAEAPv/AQAAAAAAAgAEAPz/AQAAAAAAAwAEAP3/AQAAAAAAAwAEAP7/AQAAAAAAAwAEAP//AQAAAAAAAwAEAAAAAQAAAAAAAwAEAAEAAQAAAAAAAwAEAAIAAQAAAAAAAwAEAAMAAQAAAAAAAgAEAAQAAQAAAAAAAwADAAQAAQAAAAAAAwACAAQAAQAAAAAAAwABAAQAAQAAAAAAAwAAAAQAAQAAAAAAAwD//wQAAQAAAAAAAwD//wUAAQAAAAAAAwAAAAUAAQAAAAAAAwABAAUAAQAAAAAAAgACAAUAAQAAAAAAAwADAAUAAQAAAAAAAwAEAAUAAQAAAAAAAwAFAAUAAQAAAAAAAwAFAAQAAQAAAAAAAwAFAAMAAQAAAAAAAwAFAAIAAQAAAAAAAwAFAAEAAQAAAAAAAwAFAAAAAQAAAAAAAwAFAP//AQAAAAAAAwAFAP7/AQAAAAAAAwAFAP3/AQAAAAAAAwAFAPz/AQAAAAAAAwAFAPv/AQAAAAAAAwAFAPr/AQAAAAAAAwAFAPn/AQAAAAAAAwAEAPn/AQAAAAAAAwADAPn/AQAAAAAAAwACAPn/AQAAAAAAAgABAPn/AQAAAAAAAwAAAPn/AQAAAAAAAwD///n/AQAAAAAAAwD+//n/AQAAAAAAAgD9//n/AQAAAAAAAwD8//n/AQAAAAAAAwD7//n/AQAAAAAAAwD6//n/AQAAAAAAAwA=")
 tile_set = SubResource("TileSet_6vs76")
 script = ExtResource("9_rccsh")
-house_addresses = Dictionary[Vector2i, int]({
-Vector2i(-6, -5): 870845,
-Vector2i(-6, -4): 457083,
-Vector2i(-6, -3): 634285,
-Vector2i(-6, -2): 288457,
-Vector2i(-6, 1): 521410,
-Vector2i(-6, 2): 550804,
-Vector2i(-6, 3): 268406,
-Vector2i(-6, 4): 891508,
-Vector2i(-5, -6): 89615,
-Vector2i(-5, -5): 579971,
-Vector2i(-5, -4): 338169,
-Vector2i(-5, -3): 899468,
-Vector2i(-5, -2): 703887,
-Vector2i(-5, 1): 119551,
-Vector2i(-5, 2): 908505,
-Vector2i(-5, 3): 283319,
-Vector2i(-5, 4): 131536,
-Vector2i(-5, 5): 10707,
-Vector2i(-4, -6): 245972,
-Vector2i(-4, -5): 242228,
-Vector2i(-4, -4): 688258,
-Vector2i(-4, 2): 830219,
-Vector2i(-4, 3): 99423,
-Vector2i(-4, 4): 306397,
-Vector2i(-4, 5): 794548,
-Vector2i(-3, 4): 890135,
-Vector2i(-3, 5): 701416,
-Vector2i(-2, 5): 125022,
-Vector2i(-1, -3): 137567,
-Vector2i(0, -3): 964167,
-Vector2i(1, -3): 465341,
-Vector2i(1, -2): 50653,
-Vector2i(1, -1): 187820,
-Vector2i(2, -5): 143445,
-Vector2i(2, -4): 332174,
-Vector2i(2, -3): 102570,
-Vector2i(2, -2): 544424,
-Vector2i(2, -1): 754017,
-Vector2i(2, 0): 81163,
-Vector2i(3, -5): 995179,
-Vector2i(3, -4): 705807,
-Vector2i(3, -3): 290651,
-Vector2i(3, -2): 308790,
-Vector2i(3, -1): 676531,
-Vector2i(3, 0): 73926,
-Vector2i(3, 1): 575653
+building_data = Dictionary[Vector2i, ExtResource("10_ax7ne")]({
+Vector2i(-6, -7): SubResource("Resource_jr82w"),
+Vector2i(-6, -6): SubResource("Resource_jr82w"),
+Vector2i(-6, -5): SubResource("Resource_xoajd"),
+Vector2i(-6, -4): SubResource("Resource_rvbj1"),
+Vector2i(-6, -3): SubResource("Resource_il38x"),
+Vector2i(-6, -2): SubResource("Resource_2gdwi"),
+Vector2i(-6, -1): SubResource("Resource_jr82w"),
+Vector2i(-6, 0): SubResource("Resource_jr82w"),
+Vector2i(-6, 1): SubResource("Resource_dcwjr"),
+Vector2i(-6, 2): SubResource("Resource_ob73l"),
+Vector2i(-6, 3): SubResource("Resource_k5548"),
+Vector2i(-6, 4): SubResource("Resource_pl6yh"),
+Vector2i(-6, 5): SubResource("Resource_jr82w"),
+Vector2i(-5, -7): SubResource("Resource_jr82w"),
+Vector2i(-5, -6): SubResource("Resource_unn01"),
+Vector2i(-5, -5): SubResource("Resource_3yv64"),
+Vector2i(-5, -4): SubResource("Resource_mbj8a"),
+Vector2i(-5, -3): SubResource("Resource_vgtnl"),
+Vector2i(-5, -2): SubResource("Resource_gi26r"),
+Vector2i(-5, -1): SubResource("Resource_jr82w"),
+Vector2i(-5, 0): SubResource("Resource_jr82w"),
+Vector2i(-5, 1): SubResource("Resource_b38xg"),
+Vector2i(-5, 2): SubResource("Resource_83eg4"),
+Vector2i(-5, 3): SubResource("Resource_ayxsy"),
+Vector2i(-5, 4): SubResource("Resource_gkvn1"),
+Vector2i(-5, 5): SubResource("Resource_ru7rm"),
+Vector2i(-4, -7): SubResource("Resource_jr82w"),
+Vector2i(-4, -6): SubResource("Resource_rcwq3"),
+Vector2i(-4, -5): SubResource("Resource_opqd1"),
+Vector2i(-4, -4): SubResource("Resource_baq46"),
+Vector2i(-4, -3): SubResource("Resource_cr4g7"),
+Vector2i(-4, -2): SubResource("Resource_jr82w"),
+Vector2i(-4, -1): SubResource("Resource_jr82w"),
+Vector2i(-4, 0): SubResource("Resource_jr82w"),
+Vector2i(-4, 1): SubResource("Resource_jr82w"),
+Vector2i(-4, 2): SubResource("Resource_nbaxu"),
+Vector2i(-4, 3): SubResource("Resource_nu2gi"),
+Vector2i(-4, 4): SubResource("Resource_70b58"),
+Vector2i(-4, 5): SubResource("Resource_gooay"),
+Vector2i(-3, -7): SubResource("Resource_jr82w"),
+Vector2i(-3, -6): SubResource("Resource_jr82w"),
+Vector2i(-3, -5): SubResource("Resource_jr82w"),
+Vector2i(-3, -4): SubResource("Resource_jr82w"),
+Vector2i(-3, -3): SubResource("Resource_jr82w"),
+Vector2i(-3, -2): SubResource("Resource_jr82w"),
+Vector2i(-3, -1): SubResource("Resource_jr82w"),
+Vector2i(-3, 0): SubResource("Resource_jr82w"),
+Vector2i(-3, 1): SubResource("Resource_25g1l"),
+Vector2i(-3, 3): SubResource("Resource_jr82w"),
+Vector2i(-3, 4): SubResource("Resource_0dkw0"),
+Vector2i(-3, 5): SubResource("Resource_jua6w"),
+Vector2i(-2, -7): SubResource("Resource_cr4g7"),
+Vector2i(-2, -6): SubResource("Resource_jr82w"),
+Vector2i(-2, -5): SubResource("Resource_25g1l"),
+Vector2i(-2, -3): SubResource("Resource_jr82w"),
+Vector2i(-2, -2): SubResource("Resource_jr82w"),
+Vector2i(-2, 0): SubResource("Resource_cr4g7"),
+Vector2i(-2, 3): SubResource("Resource_jr82w"),
+Vector2i(-2, 4): SubResource("Resource_jr82w"),
+Vector2i(-2, 5): SubResource("Resource_ycrer"),
+Vector2i(-1, -7): SubResource("Resource_jr82w"),
+Vector2i(-1, -6): SubResource("Resource_jr82w"),
+Vector2i(-1, -3): SubResource("Resource_48r4s"),
+Vector2i(-1, -2): SubResource("Resource_25g1l"),
+Vector2i(-1, 0): SubResource("Resource_jr82w"),
+Vector2i(-1, 1): SubResource("Resource_jr82w"),
+Vector2i(-1, 2): SubResource("Resource_jr82w"),
+Vector2i(-1, 3): SubResource("Resource_jr82w"),
+Vector2i(-1, 4): SubResource("Resource_jr82w"),
+Vector2i(-1, 5): SubResource("Resource_jr82w"),
+Vector2i(0, -7): SubResource("Resource_jr82w"),
+Vector2i(0, -6): SubResource("Resource_jr82w"),
+Vector2i(0, -5): SubResource("Resource_25g1l"),
+Vector2i(0, -3): SubResource("Resource_kja0s"),
+Vector2i(0, 1): SubResource("Resource_jr82w"),
+Vector2i(0, 2): SubResource("Resource_jr82w"),
+Vector2i(0, 3): SubResource("Resource_jr82w"),
+Vector2i(0, 4): SubResource("Resource_jr82w"),
+Vector2i(0, 5): SubResource("Resource_jr82w"),
+Vector2i(1, -7): SubResource("Resource_jr82w"),
+Vector2i(1, -6): SubResource("Resource_jr82w"),
+Vector2i(1, -3): SubResource("Resource_4no8g"),
+Vector2i(1, -2): SubResource("Resource_p3doa"),
+Vector2i(1, -1): SubResource("Resource_2sboe"),
+Vector2i(1, 0): SubResource("Resource_cr4g7"),
+Vector2i(1, 1): SubResource("Resource_jr82w"),
+Vector2i(1, 2): SubResource("Resource_jr82w"),
+Vector2i(1, 3): SubResource("Resource_jr82w"),
+Vector2i(1, 4): SubResource("Resource_jr82w"),
+Vector2i(1, 5): SubResource("Resource_cr4g7"),
+Vector2i(2, -7): SubResource("Resource_cr4g7"),
+Vector2i(2, -6): SubResource("Resource_jr82w"),
+Vector2i(2, -5): SubResource("Resource_vs87s"),
+Vector2i(2, -4): SubResource("Resource_p6oy6"),
+Vector2i(2, -3): SubResource("Resource_itu0t"),
+Vector2i(2, -2): SubResource("Resource_kflc5"),
+Vector2i(2, -1): SubResource("Resource_witbp"),
+Vector2i(2, 0): SubResource("Resource_sv6t6"),
+Vector2i(2, 1): SubResource("Resource_jr82w"),
+Vector2i(2, 3): SubResource("Resource_cr4g7"),
+Vector2i(2, 4): SubResource("Resource_jr82w"),
+Vector2i(2, 5): SubResource("Resource_jr82w"),
+Vector2i(3, -7): SubResource("Resource_jr82w"),
+Vector2i(3, -6): SubResource("Resource_jr82w"),
+Vector2i(3, -5): SubResource("Resource_u2nc6"),
+Vector2i(3, -4): SubResource("Resource_0akr6"),
+Vector2i(3, -3): SubResource("Resource_40jy2"),
+Vector2i(3, -2): SubResource("Resource_iw3v5"),
+Vector2i(3, -1): SubResource("Resource_wsd7d"),
+Vector2i(3, 0): SubResource("Resource_gips2"),
+Vector2i(3, 1): SubResource("Resource_xyj84"),
+Vector2i(3, 2): SubResource("Resource_jr82w"),
+Vector2i(3, 3): SubResource("Resource_jr82w"),
+Vector2i(3, 4): SubResource("Resource_jr82w"),
+Vector2i(3, 5): SubResource("Resource_jr82w"),
+Vector2i(4, -7): SubResource("Resource_jr82w"),
+Vector2i(4, -6): SubResource("Resource_jr82w"),
+Vector2i(4, -5): SubResource("Resource_cr4g7"),
+Vector2i(4, -4): SubResource("Resource_jr82w"),
+Vector2i(4, -3): SubResource("Resource_jr82w"),
+Vector2i(4, -2): SubResource("Resource_jr82w"),
+Vector2i(4, -1): SubResource("Resource_jr82w"),
+Vector2i(4, 0): SubResource("Resource_jr82w"),
+Vector2i(4, 1): SubResource("Resource_jr82w"),
+Vector2i(4, 2): SubResource("Resource_jr82w"),
+Vector2i(4, 3): SubResource("Resource_cr4g7"),
+Vector2i(4, 4): SubResource("Resource_jr82w"),
+Vector2i(4, 5): SubResource("Resource_jr82w"),
+Vector2i(5, -7): SubResource("Resource_jr82w"),
+Vector2i(5, -6): SubResource("Resource_jr82w"),
+Vector2i(5, -5): SubResource("Resource_jr82w"),
+Vector2i(5, -4): SubResource("Resource_jr82w"),
+Vector2i(5, -3): SubResource("Resource_jr82w"),
+Vector2i(5, -2): SubResource("Resource_jr82w"),
+Vector2i(5, -1): SubResource("Resource_jr82w"),
+Vector2i(5, 0): SubResource("Resource_jr82w"),
+Vector2i(5, 1): SubResource("Resource_jr82w"),
+Vector2i(5, 2): SubResource("Resource_jr82w"),
+Vector2i(5, 3): SubResource("Resource_jr82w"),
+Vector2i(5, 4): SubResource("Resource_jr82w"),
+Vector2i(5, 5): SubResource("Resource_jr82w")
 })
 buildings = Dictionary[int, Array]({
 0: [Vector2i(-1, -2), Vector2i(-3, 1), Vector2i(-2, -5), Vector2i(0, -5)],
-1: [Vector2i(2, -4), Vector2i(-4, -5), Vector2i(3, 1), Vector2i(3, 0), Vector2i(3, -1), Vector2i(3, -2), Vector2i(3, -3), Vector2i(3, -4), Vector2i(3, -5), Vector2i(2, -5), Vector2i(2, 0), Vector2i(2, -1), Vector2i(2, -2), Vector2i(2, -3), Vector2i(1, -3), Vector2i(0, -3), Vector2i(-1, -3), Vector2i(1, -2), Vector2i(1, -1), Vector2i(-1, 0), Vector2i(-4, -4), Vector2i(-4, 2), Vector2i(-4, 3), Vector2i(-3, -1), Vector2i(1, 2), Vector2i(-4, 4), Vector2i(-3, 4), Vector2i(-2, 5), Vector2i(-3, 5), Vector2i(-4, 5), Vector2i(-5, 5), Vector2i(-5, 4), Vector2i(-6, 4), Vector2i(-6, 3), Vector2i(-6, 2), Vector2i(-6, 1), Vector2i(-5, 1), Vector2i(-5, 2), Vector2i(-5, 3), Vector2i(-5, -2), Vector2i(-5, -3), Vector2i(-5, -4), Vector2i(-4, -6), Vector2i(-5, -6), Vector2i(-5, -5), Vector2i(-6, -5), Vector2i(-6, -4), Vector2i(-6, -3), Vector2i(-6, -2)],
-2: [Vector2i(0, 1), Vector2i(3, 3), Vector2i(3, 2), Vector2i(-3, -5), Vector2i(-3, -4), Vector2i(-3, -3), Vector2i(-3, -2), Vector2i(-3, 0), Vector2i(-4, 1), Vector2i(-1, 1), Vector2i(-1, 2), Vector2i(0, 2), Vector2i(1, 1), Vector2i(2, 1), Vector2i(-2, -3), Vector2i(-2, -2), Vector2i(-4, -2), Vector2i(-4, -1), Vector2i(-4, 0), Vector2i(-3, 3), Vector2i(-2, 3), Vector2i(-1, 3), Vector2i(0, 3), Vector2i(1, 3), Vector2i(-2, 4), Vector2i(-6, -1), Vector2i(-6, 5), Vector2i(-6, 0), Vector2i(-5, -1), Vector2i(-5, 0), Vector2i(-6, -6), Vector2i(-3, -6), Vector2i(-2, -6), Vector2i(-1, -6), Vector2i(0, -6), Vector2i(1, -6), Vector2i(2, -6), Vector2i(3, -6), Vector2i(4, -6), Vector2i(4, -4), Vector2i(4, -3), Vector2i(4, -2), Vector2i(4, -1), Vector2i(4, 0), Vector2i(4, 1), Vector2i(4, 2), Vector2i(4, 4), Vector2i(3, 4), Vector2i(2, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(-1, 4), Vector2i(-1, 5), Vector2i(0, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(5, 4), Vector2i(5, 3), Vector2i(5, 2), Vector2i(5, 1), Vector2i(5, 0), Vector2i(5, -1), Vector2i(5, -2), Vector2i(5, -3), Vector2i(5, -4), Vector2i(5, -5), Vector2i(5, -6), Vector2i(5, -7), Vector2i(4, -7), Vector2i(3, -7), Vector2i(1, -7), Vector2i(0, -7), Vector2i(-1, -7), Vector2i(-3, -7), Vector2i(-4, -7), Vector2i(-5, -7), Vector2i(-6, -7)],
+1: [Vector2i(2, -4), Vector2i(-4, -5), Vector2i(3, 1), Vector2i(3, 0), Vector2i(3, -1), Vector2i(3, -2), Vector2i(3, -3), Vector2i(3, -4), Vector2i(3, -5), Vector2i(2, -5), Vector2i(2, 0), Vector2i(2, -1), Vector2i(2, -2), Vector2i(2, -3), Vector2i(1, -3), Vector2i(0, -3), Vector2i(-1, -3), Vector2i(1, -2), Vector2i(1, -1), Vector2i(-4, -4), Vector2i(-4, 2), Vector2i(-4, 3), Vector2i(-4, 4), Vector2i(-3, 4), Vector2i(-2, 5), Vector2i(-3, 5), Vector2i(-4, 5), Vector2i(-5, 5), Vector2i(-5, 4), Vector2i(-6, 4), Vector2i(-6, 3), Vector2i(-6, 2), Vector2i(-6, 1), Vector2i(-5, 1), Vector2i(-5, 2), Vector2i(-5, 3), Vector2i(-5, -2), Vector2i(-5, -3), Vector2i(-5, -4), Vector2i(-4, -6), Vector2i(-5, -6), Vector2i(-5, -5), Vector2i(-6, -5), Vector2i(-6, -4), Vector2i(-6, -3), Vector2i(-6, -2)],
+2: [Vector2i(0, 1), Vector2i(3, 3), Vector2i(3, 2), Vector2i(-3, -5), Vector2i(-3, -4), Vector2i(-3, -3), Vector2i(-3, -2), Vector2i(-3, 0), Vector2i(-4, 1), Vector2i(-1, 1), Vector2i(-1, 2), Vector2i(0, 2), Vector2i(1, 1), Vector2i(2, 1), Vector2i(-2, -3), Vector2i(-1, 0), Vector2i(-2, -2), Vector2i(-4, -2), Vector2i(-4, -1), Vector2i(-4, 0), Vector2i(-3, 3), Vector2i(-2, 3), Vector2i(-1, 3), Vector2i(0, 3), Vector2i(1, 3), Vector2i(-3, -1), Vector2i(1, 2), Vector2i(-2, 4), Vector2i(-6, -1), Vector2i(-6, 5), Vector2i(-6, 0), Vector2i(-5, -1), Vector2i(-5, 0), Vector2i(-6, -6), Vector2i(-3, -6), Vector2i(-2, -6), Vector2i(-1, -6), Vector2i(0, -6), Vector2i(1, -6), Vector2i(2, -6), Vector2i(3, -6), Vector2i(4, -6), Vector2i(4, -4), Vector2i(4, -3), Vector2i(4, -2), Vector2i(4, -1), Vector2i(4, 0), Vector2i(4, 1), Vector2i(4, 2), Vector2i(4, 4), Vector2i(3, 4), Vector2i(2, 4), Vector2i(1, 4), Vector2i(0, 4), Vector2i(-1, 4), Vector2i(-1, 5), Vector2i(0, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(5, 4), Vector2i(5, 3), Vector2i(5, 2), Vector2i(5, 1), Vector2i(5, 0), Vector2i(5, -1), Vector2i(5, -2), Vector2i(5, -3), Vector2i(5, -4), Vector2i(5, -5), Vector2i(5, -6), Vector2i(5, -7), Vector2i(4, -7), Vector2i(3, -7), Vector2i(1, -7), Vector2i(0, -7), Vector2i(-1, -7), Vector2i(-3, -7), Vector2i(-4, -7), Vector2i(-5, -7), Vector2i(-6, -7)],
 3: [Vector2i(-2, 0), Vector2i(1, 0), Vector2i(2, 3), Vector2i(-4, -3), Vector2i(4, -5), Vector2i(4, 3), Vector2i(1, 5), Vector2i(2, -7), Vector2i(-2, -7)]
 })
 

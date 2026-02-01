@@ -18,7 +18,6 @@ size = Vector2(17, 18)
 
 [node name="BaseBuilding" unique_id=583408200 instance=ExtResource("1_jn77t")]
 z_index = 0
-purpose = 2
 
 [node name="CollisionShape2D" parent="HideArea" parent_id_path=PackedInt32Array(1367318042) index="0" unique_id=1992347408]
 disabled = true
