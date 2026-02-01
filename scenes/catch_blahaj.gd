@@ -32,13 +32,16 @@ func _process(delta: float) -> void:
     if pressed and blahajCooked:
         InventoryItems.blahajs += 1
         finish.emit()
-        visible = false
     elif pressed:
         var newWaitTime = $Timer.time_left-1
+        if newWaitTime < 0:
+            finish.emit()
+            return
+        
         $Timer.stop()
         $Timer.wait_time = newWaitTime
         $Timer.start()
-        finish.emit()
+    
     $ProgressBar.value = $Timer.time_left
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

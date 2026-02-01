@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://14ltq5hvuwfu" path="res://scripts/show_in_game.gd" id="5_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
 [ext_resource type="PackedScene" uid="uid://dx2pp7a303jmf" path="res://scenes/intro.tscn" id="7_x5162"]
-[ext_resource type="Script" path="res://scenes/lose_screen.gd" id="9_m4k3q"]
+[ext_resource type="Script" uid="uid://vsu2blupw2th" path="res://scenes/lose_screen.gd" id="9_m4k3q"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="10_yxaod"]
 [ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="11_yxaod"]
 [ext_resource type="Script" uid="uid://bjpwkbtnvtmgi" path="res://scenes/inventory.gd" id="12_8gmqy"]
@@ -209,6 +209,7 @@ text = "0"
 
 [node name="MinigameContainer" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1729124971]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
