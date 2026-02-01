@@ -7,6 +7,30 @@
 [ext_resource type="Texture2D" uid="uid://bs12ci2q1u0gt" path="res://art/mimi/up.png" id="4_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
 
+[sub_resource type="Gradient" id="Gradient_kwwav"]
+colors = PackedColorArray(0.42, 0.34145996, 0.28139997, 1, 0.53, 0.5198417, 0.5035, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x5162"]
+gradient = SubResource("Gradient_kwwav")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jaax5"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 2, 0)
+emission_shape_scale = Vector3(4, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -19.99999
+angle_max = 20.000011
+spread = 0.0
+initial_velocity_max = 1.0
+angular_velocity_min = -40.000015
+angular_velocity_max = 39.999985
+gravity = Vector3(50, 12, 0)
+scale_min = 0.35
+scale_max = 0.5
+scale_over_velocity_max = 1.0
+color_ramp = SubResource("GradientTexture1D_x5162")
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_trh3t"]
 animations = [{
 "frames": [{
@@ -39,11 +63,15 @@ size = Vector2(5, 5)
 
 [node name="Mimi" type="Node2D" unique_id=831696364]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 groups=["player"]]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 node_paths=PackedStringArray("particles") groups=["player"]]
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_0n537")
+particles = NodePath("GPUParticles2D")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Player" unique_id=1934129415]
+process_material = SubResource("ParticleProcessMaterial_jaax5")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1838044837]
 scale = Vector2(0.004, 0.004)
