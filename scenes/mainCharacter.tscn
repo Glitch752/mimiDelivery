@@ -7,9 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://bs12ci2q1u0gt" path="res://art/mimi/up.png" id="4_jaax5"]
 [ext_resource type="Script" uid="uid://14ltq5hvuwfu" path="res://scripts/show_in_game.gd" id="5_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
+[ext_resource type="Script" uid="uid://pmq54c5plqsl" path="res://scenes/catch_blahaj.gd" id="6_wftgc"]
+[ext_resource type="PackedScene" uid="uid://cfic0od4syqc" path="res://scenes/catchBlahaj.tscn" id="7_8gmqy"]
 [ext_resource type="PackedScene" uid="uid://dx2pp7a303jmf" path="res://scenes/intro.tscn" id="7_x5162"]
 [ext_resource type="Script" uid="uid://vsu2blupw2th" path="res://scenes/lose_screen.gd" id="9_m4k3q"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="10_yxaod"]
+[ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="11_yxaod"]
+[ext_resource type="Script" uid="uid://bjpwkbtnvtmgi" path="res://scenes/inventory.gd" id="12_8gmqy"]
 
 [sub_resource type="Gradient" id="Gradient_kwwav"]
 colors = PackedColorArray(0.42, 0.34145996, 0.28139997, 1, 0.53, 0.5198417, 0.5035, 1)
@@ -66,6 +70,8 @@ animations = [{
 size = Vector2(5, 5)
 
 [node name="Mimi" type="Node2D" unique_id=831696364]
+metadata/_edit_horizontal_guides_ = [541.0]
+metadata/_edit_vertical_guides_ = [963.0]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 node_paths=PackedStringArray("particles") groups=["player"]]
 z_index = 1
@@ -99,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("6_wftgc")
 
 [node name="TimeDisplay" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=108378729 node_paths=PackedStringArray("day_night_filter_parent") instance=ExtResource("4_gff5m")]
 layout_mode = 1
@@ -166,6 +173,45 @@ theme_override_fonts/font = ExtResource("10_yxaod")
 theme_override_font_sizes/font_size = 40
 text = "Main Menu
 "
+
+[node name="Inventory" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=322861878]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("12_8gmqy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory" unique_id=1226117837]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.3500001
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.6750001
+offset_left = -17.999992
+offset_top = 22.0
+offset_right = 7.0
+offset_bottom = 39.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BlahajLabel" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=1892657558]
+layout_mode = 2
+text = "Blåhajs"
+
+[node name="TextureRect" type="TextureRect" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=380057622]
+layout_mode = 2
+texture = ExtResource("11_yxaod")
+
+[node name="BlahajCount" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=2071857395]
+layout_mode = 2
+text = "0"
+
+[node name="catchBlahaj" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=2061959431 instance=ExtResource("7_8gmqy")]
+layout_mode = 1
 
 [node name="MinigameContainer" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1729124971]
 unique_name_in_owner = true

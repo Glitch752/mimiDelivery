@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 TimeManager="*uid://woa64b3uqnxs"
 MapData="*uid://dd5awlg22iote"
+InventoryItems="*uid://dssjhbyrwwoce"
 
 [display]
 

@@ -26,17 +26,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    var pressed = Input.is_action_just_pressed(catchString)
-    if pressed and blahajCooked:
-        print("caught")
-        queue_free()
-    elif pressed:
-        var newWaitTime = $Timer.time_left-1
-        $Timer.stop()
-        $Timer.wait_time = newWaitTime
-        $Timer.start()
-        print("not caught")
-    $ProgressBar.value = $Timer.time_left
+	var pressed = Input.is_action_just_pressed(catchString)
+	if pressed and blahajCooked:
+		print("caught")
+		InventoryItems.blahajs += 1
+		visible = false
+	elif pressed:
+		var newWaitTime = $Timer.time_left-1
+		$Timer.stop()
+		$Timer.wait_time = newWaitTime
+		$Timer.start()
+		print("not caught")
+	$ProgressBar.value = $Timer.time_left
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
     if body.is_in_group("blahaj"):
