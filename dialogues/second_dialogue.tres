@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://c72f35ejj1ygm"]
+
+[ext_resource type="Script" uid="uid://55o782g00u5n" path="res://dialogue.gd" id="1_0tke0"]
+
+[resource]
+script = ExtResource("1_0tke0")
+speaker = "Mimo"
+speach = "Great. You better get to work. If you can't make your deliveries on time, you'll be fired"
+metadata/_custom_type_script = "uid://55o782g00u5n"
