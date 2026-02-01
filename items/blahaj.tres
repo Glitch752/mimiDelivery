@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://k6kjnly2mrp8"]
+
+[ext_resource type="Script" uid="uid://bsvwb03y27t7a" path="res://scripts/item.gd" id="1_a556l"]
+
+[resource]
+script = ExtResource("1_a556l")
+item_name = &"Blahaj"
+metadata/_custom_type_script = "uid://bsvwb03y27t7a"
