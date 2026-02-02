@@ -34,7 +34,7 @@ func generate_task() -> Task:
     var destinations: Array
     destinations = MapData.buildings[MapData.BuildingPurpose.DESTINATION]
     var destination_pos: Vector2i = destinations.pick_random()
-    var destination_data: BuildingDataDestination
+    var destination_data: BuildingData
     destination_data = MapData.building_data[destination_pos]
     
     return Task.new(item, 1, destination_data.building_name, 360)

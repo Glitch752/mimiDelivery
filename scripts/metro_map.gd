@@ -5,6 +5,10 @@ extends Control
 @export var map_size := Vector2i(30, 30)
 
 
+func _ready() -> void:
+    hide()
+
+
 func _draw() -> void:
     draw_rect(Rect2(Vector2.ZERO, size), Color.WHITE)
     
@@ -36,6 +40,15 @@ func _draw() -> void:
             
             var radius: int = 15 + 10 * previous_stops
             draw_circle(get_physical_pos(stop), radius, line_color, false, 10)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event.is_action_pressed("show_metro_map") and not visible:
+        show()
+        get_tree().paused = true
+    elif event.is_action_pressed("hide_metro_map") and visible:
+        hide()
+        get_tree().paused = false
 
 
 func get_physical_pos(map_pos: Vector2i) -> Vector2:
