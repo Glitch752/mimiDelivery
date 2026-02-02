@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Mimi Delivery"
+config/version="1.0.0"
 run/main_scene="uid://pm7u4otuwp1v"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://chn43swb8kyll"
 
 [autoload]
 
