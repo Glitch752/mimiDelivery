@@ -63,6 +63,10 @@ func _physics_process(delta: float) -> void:
 var minigame_open = false
 
 func open_minigame(minigame: PackedScene):
+    _open_minigame.call_deferred(minigame)
+
+## Must be called deferred
+func _open_minigame(minigame: PackedScene):
     if $%MinigameContainer.get_child_count() > 0:
         return
     
