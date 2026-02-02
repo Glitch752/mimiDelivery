@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://xllxi6q6nwos" path="res://art/minimap_frame_background.png" id="13_opqd1"]
 [ext_resource type="Texture2D" uid="uid://ckd3mu10naw8y" path="res://art/mimiicon-1.png.png" id="13_p6oy6"]
 [ext_resource type="Script" uid="uid://bjssiakt2chbg" path="res://scenes/level/buildings/data/building_data_destination.gd" id="13_xe3hh"]
-[ext_resource type="Script" uid="uid://ltpgw47uk5lo" path="res://scripts/minimap.gd" id="15_p6oy6"]
+[ext_resource type="Script" path="res://scripts/minimap.gd" id="15_p6oy6"]
 [ext_resource type="Texture2D" uid="uid://3qybvbjv7k5n" path="res://art/minimap_frame.png" id="16_xyj84"]
 
 [sub_resource type="GDScript" id="GDScript_m0xki"]
@@ -624,6 +624,10 @@ buildings = Dictionary[int, Array]({
 [node name="Mimi" parent="." unique_id=831696364 instance=ExtResource("4_kl8ac")]
 z_as_relative = false
 position = Vector2(-5, 34)
+
+[node name="TasksPanel" parent="Mimi/Player/Camera2D/CanvasLayer/UIOverlay" parent_id_path=PackedInt32Array(831696364, 1291501507) index="1" unique_id=463488195 node_paths=PackedStringArray("building_grid", "player")]
+building_grid = NodePath("../../../../../../BuildingGrid")
+player = NodePath("../../../..")
 
 [node name="MinigameContainer" parent="Mimi/Player/Camera2D/CanvasLayer/UIOverlay" parent_id_path=PackedInt32Array(831696364, 1291501507) index="4" unique_id=1729124971]
 mouse_filter = 2

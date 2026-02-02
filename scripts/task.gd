@@ -5,6 +5,7 @@ extends Resource
 @export var quantity: int = 1
 @export var destination: String
 @export var time_to_complete: int = 60
+@export var pos: Vector2i
 
 var due_minute: int
 var due_hour: int
@@ -13,12 +14,12 @@ var due_week: int
 
 
 func _init(p_item_req: Item = null, p_quantity: int = 1,
-        p_destination: String = "", p_time_to_complete: int = 60) -> void:
+        p_destination: String = "", p_time_to_complete: int = 60, p_pos: Vector2i = Vector2i.ZERO) -> void:
     item_req = p_item_req
     quantity = p_quantity
     destination = p_destination
     time_to_complete = p_time_to_complete
-
+    pos = p_pos
 
 func calculate_due_time() -> void:
     due_minute = time_to_complete % 60
