@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bsdah1ymglwoy"]
+
+[ext_resource type="Script" uid="uid://b8kuss8wi2o0k" path="res://scripts/metro_map.gd" id="1_ityiy"]
+
+[node name="MetroMap" type="Control" unique_id=94377571]
+custom_minimum_size = Vector2(1600, 900)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ityiy")
+map_size = Vector2i(32, 18)
