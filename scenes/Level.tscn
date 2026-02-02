@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://xllxi6q6nwos" path="res://art/minimap_frame_background.png" id="13_opqd1"]
 [ext_resource type="Texture2D" uid="uid://ckd3mu10naw8y" path="res://art/mimiicon-1.png.png" id="13_p6oy6"]
 [ext_resource type="Script" uid="uid://bjssiakt2chbg" path="res://scenes/level/buildings/data/building_data_destination.gd" id="13_xe3hh"]
-[ext_resource type="Script" path="res://scripts/minimap.gd" id="15_p6oy6"]
+[ext_resource type="Script" uid="uid://ltpgw47uk5lo" path="res://scripts/minimap.gd" id="15_p6oy6"]
 [ext_resource type="Texture2D" uid="uid://3qybvbjv7k5n" path="res://art/minimap_frame.png" id="16_xyj84"]
 
 [sub_resource type="GDScript" id="GDScript_m0xki"]
@@ -108,11 +108,116 @@ func _pregenerate_building_map():
                 buildings[purpose].append(pos)
 "
 
-[sub_resource type="Resource" id="Resource_25g1l"]
-script = ExtResource("12_xe3hh")
-items = Array[ExtResource("11_m0xki")]([ExtResource("11_wsd7d")])
-building_name = "IKEE"
-metadata/_custom_type_script = "uid://dvsdgjr81g6k6"
+[sub_resource type="Resource" id="Resource_gmhdv"]
+script = ExtResource("10_ax7ne")
+purpose = 2
+building_name = "Empty Tree"
+metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
+
+[sub_resource type="Resource" id="Resource_jg4gp"]
+script = ExtResource("13_xe3hh")
+address = 255686
+purpose = 1
+building_name = "Cat Home #255686"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_uccw5"]
+script = ExtResource("13_xe3hh")
+address = 364410
+purpose = 1
+building_name = "Cat Home #364410"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_prkx5"]
+script = ExtResource("13_xe3hh")
+address = 166736
+purpose = 1
+building_name = "Cat Home #166736"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_yjjmw"]
+script = ExtResource("13_xe3hh")
+address = 550597
+purpose = 1
+building_name = "Cat Home #550597"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_vgtnl"]
+script = ExtResource("13_xe3hh")
+address = 591974
+purpose = 1
+building_name = "Cat Home #591974"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_gi26r"]
+script = ExtResource("13_xe3hh")
+address = 552584
+purpose = 1
+building_name = "Cat Home #552584"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_ayxsy"]
+script = ExtResource("13_xe3hh")
+address = 135983
+purpose = 1
+building_name = "Cat Home #135983"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_83eg4"]
+script = ExtResource("13_xe3hh")
+address = 613379
+purpose = 1
+building_name = "Cat Home #613379"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_il38x"]
+script = ExtResource("13_xe3hh")
+address = 34827
+purpose = 1
+building_name = "Cat Home #34827"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_2gdwi"]
+script = ExtResource("13_xe3hh")
+address = 300043
+purpose = 1
+building_name = "Cat Home #300043"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_xoajd"]
+script = ExtResource("13_xe3hh")
+address = 767665
+purpose = 1
+building_name = "Cat Home #767665"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_3yv64"]
+script = ExtResource("13_xe3hh")
+address = 128152
+purpose = 1
+building_name = "Cat Home #128152"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_unn01"]
+script = ExtResource("13_xe3hh")
+address = 882055
+purpose = 1
+building_name = "Cat Home #882055"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_mbj8a"]
+script = ExtResource("13_xe3hh")
+address = 644115
+purpose = 1
+building_name = "Cat Home #644115"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_rcwq3"]
+script = ExtResource("13_xe3hh")
+address = 676789
+purpose = 1
+building_name = "Cat Home #676789"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
 [sub_resource type="Resource" id="Resource_cr4g7"]
 script = ExtResource("10_ax7ne")
@@ -120,11 +225,25 @@ purpose = 3
 building_name = "MRT"
 metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
 
-[sub_resource type="Resource" id="Resource_iw3v5"]
+[sub_resource type="Resource" id="Resource_b38xg"]
 script = ExtResource("13_xe3hh")
-address = 298245
+address = 111638
 purpose = 1
-building_name = "Cat Home #298245"
+building_name = "Cat Home #111638"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_dcwjr"]
+script = ExtResource("13_xe3hh")
+address = 577798
+purpose = 1
+building_name = "Cat Home #577798"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_rvbj1"]
+script = ExtResource("13_xe3hh")
+address = 442874
+purpose = 1
+building_name = "Cat Home #442874"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
 [sub_resource type="Resource" id="Resource_40jy2"]
@@ -133,137 +252,6 @@ address = 449747
 purpose = 1
 building_name = "Cat Home #449747"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_gmhdv"]
-script = ExtResource("10_ax7ne")
-purpose = 2
-building_name = "Empty Tree"
-metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
-
-[sub_resource type="Resource" id="Resource_0akr6"]
-script = ExtResource("13_xe3hh")
-address = 552366
-purpose = 1
-building_name = "Cat Home #552366"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_u2nc6"]
-script = ExtResource("13_xe3hh")
-address = 862895
-purpose = 1
-building_name = "Cat Home #862895"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_vs87s"]
-script = ExtResource("13_xe3hh")
-address = 246228
-purpose = 1
-building_name = "Cat Home #246228"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_sv6t6"]
-script = ExtResource("13_xe3hh")
-address = 311833
-purpose = 1
-building_name = "Cat Home #311833"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_witbp"]
-script = ExtResource("13_xe3hh")
-address = 499073
-purpose = 1
-building_name = "Cat Home #499073"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_kflc5"]
-script = ExtResource("13_xe3hh")
-address = 491039
-purpose = 1
-building_name = "Cat Home #491039"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_itu0t"]
-script = ExtResource("13_xe3hh")
-address = 134513
-purpose = 1
-building_name = "Cat Home #134513"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_4no8g"]
-script = ExtResource("13_xe3hh")
-address = 348396
-purpose = 1
-building_name = "Cat Home #348396"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_kja0s"]
-script = ExtResource("13_xe3hh")
-address = 948103
-purpose = 1
-building_name = "Cat Home #948103"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_48r4s"]
-script = ExtResource("13_xe3hh")
-address = 966698
-purpose = 1
-building_name = "Cat Home #966698"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_p3doa"]
-script = ExtResource("13_xe3hh")
-address = 459059
-purpose = 1
-building_name = "Cat Home #459059"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_2sboe"]
-script = ExtResource("13_xe3hh")
-address = 929509
-purpose = 1
-building_name = "Cat Home #929509"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_baq46"]
-script = ExtResource("13_xe3hh")
-address = 303740
-purpose = 1
-building_name = "Cat Home #303740"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_nbaxu"]
-script = ExtResource("13_xe3hh")
-address = 106818
-purpose = 1
-building_name = "Cat Home #106818"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_nu2gi"]
-script = ExtResource("13_xe3hh")
-address = 56636
-purpose = 1
-building_name = "Cat Home #56636"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_70b58"]
-script = ExtResource("13_xe3hh")
-address = 522772
-purpose = 1
-building_name = "Cat Home #522772"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_0dkw0"]
-script = ExtResource("13_xe3hh")
-address = 565500
-purpose = 1
-building_name = "Cat Home #565500"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_l8q54"]
-script = ExtResource("10_ax7ne")
-purpose = 1
-building_name = "J67 Hotel"
-metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
 
 [sub_resource type="Resource" id="Resource_ycrer"]
 script = ExtResource("13_xe3hh")
@@ -293,18 +281,30 @@ purpose = 1
 building_name = "Cat Home #615463"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
+[sub_resource type="Resource" id="Resource_ob73l"]
+script = ExtResource("13_xe3hh")
+address = 227656
+purpose = 1
+building_name = "Cat Home #227656"
+metadata/_custom_type_script = "uid://bjssiakt2chbg"
+
+[sub_resource type="Resource" id="Resource_25g1l"]
+script = ExtResource("12_xe3hh")
+items = Array[ExtResource("11_m0xki")]([ExtResource("11_wsd7d")])
+building_name = "IKEE"
+metadata/_custom_type_script = "uid://dvsdgjr81g6k6"
+
+[sub_resource type="Resource" id="Resource_l8q54"]
+script = ExtResource("10_ax7ne")
+purpose = 1
+building_name = "J67 Hotel"
+metadata/_custom_type_script = "uid://b6bcl1slrhxf2"
+
 [sub_resource type="Resource" id="Resource_gkvn1"]
 script = ExtResource("13_xe3hh")
 address = 447026
 purpose = 1
 building_name = "Cat Home #447026"
-metadata/_custom_type_script = "uid://bjssiakt2chbg"
-
-[sub_resource type="Resource" id="Resource_pl6yh"]
-script = ExtResource("13_xe3hh")
-address = 160352
-purpose = 1
-building_name = "Cat Home #160352"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
 [sub_resource type="Resource" id="Resource_k5548"]
@@ -314,137 +314,137 @@ purpose = 1
 building_name = "Cat Home #242053"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_ob73l"]
+[sub_resource type="Resource" id="Resource_pl6yh"]
 script = ExtResource("13_xe3hh")
-address = 227656
+address = 160352
 purpose = 1
-building_name = "Cat Home #227656"
+building_name = "Cat Home #160352"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_dcwjr"]
+[sub_resource type="Resource" id="Resource_nu2gi"]
 script = ExtResource("13_xe3hh")
-address = 577798
+address = 56636
 purpose = 1
-building_name = "Cat Home #577798"
+building_name = "Cat Home #56636"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_b38xg"]
+[sub_resource type="Resource" id="Resource_nbaxu"]
 script = ExtResource("13_xe3hh")
-address = 111638
+address = 106818
 purpose = 1
-building_name = "Cat Home #111638"
+building_name = "Cat Home #106818"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_83eg4"]
+[sub_resource type="Resource" id="Resource_baq46"]
 script = ExtResource("13_xe3hh")
-address = 613379
+address = 303740
 purpose = 1
-building_name = "Cat Home #613379"
+building_name = "Cat Home #303740"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_ayxsy"]
+[sub_resource type="Resource" id="Resource_70b58"]
 script = ExtResource("13_xe3hh")
-address = 135983
+address = 522772
 purpose = 1
-building_name = "Cat Home #135983"
+building_name = "Cat Home #522772"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_gi26r"]
+[sub_resource type="Resource" id="Resource_0dkw0"]
 script = ExtResource("13_xe3hh")
-address = 552584
+address = 565500
 purpose = 1
-building_name = "Cat Home #552584"
+building_name = "Cat Home #565500"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_vgtnl"]
+[sub_resource type="Resource" id="Resource_4no8g"]
 script = ExtResource("13_xe3hh")
-address = 591974
+address = 348396
 purpose = 1
-building_name = "Cat Home #591974"
+building_name = "Cat Home #348396"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_mbj8a"]
+[sub_resource type="Resource" id="Resource_iw3v5"]
 script = ExtResource("13_xe3hh")
-address = 644115
+address = 298245
 purpose = 1
-building_name = "Cat Home #644115"
+building_name = "Cat Home #298245"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_rcwq3"]
+[sub_resource type="Resource" id="Resource_2sboe"]
 script = ExtResource("13_xe3hh")
-address = 676789
+address = 929509
 purpose = 1
-building_name = "Cat Home #676789"
+building_name = "Cat Home #929509"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_unn01"]
+[sub_resource type="Resource" id="Resource_p3doa"]
 script = ExtResource("13_xe3hh")
-address = 882055
+address = 459059
 purpose = 1
-building_name = "Cat Home #882055"
+building_name = "Cat Home #459059"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_3yv64"]
+[sub_resource type="Resource" id="Resource_48r4s"]
 script = ExtResource("13_xe3hh")
-address = 128152
+address = 966698
 purpose = 1
-building_name = "Cat Home #128152"
+building_name = "Cat Home #966698"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_xoajd"]
+[sub_resource type="Resource" id="Resource_kja0s"]
 script = ExtResource("13_xe3hh")
-address = 767665
+address = 948103
 purpose = 1
-building_name = "Cat Home #767665"
+building_name = "Cat Home #948103"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_rvbj1"]
+[sub_resource type="Resource" id="Resource_itu0t"]
 script = ExtResource("13_xe3hh")
-address = 442874
+address = 134513
 purpose = 1
-building_name = "Cat Home #442874"
+building_name = "Cat Home #134513"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_il38x"]
+[sub_resource type="Resource" id="Resource_kflc5"]
 script = ExtResource("13_xe3hh")
-address = 34827
+address = 491039
 purpose = 1
-building_name = "Cat Home #34827"
+building_name = "Cat Home #491039"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_2gdwi"]
+[sub_resource type="Resource" id="Resource_witbp"]
 script = ExtResource("13_xe3hh")
-address = 300043
+address = 499073
 purpose = 1
-building_name = "Cat Home #300043"
+building_name = "Cat Home #499073"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_jg4gp"]
+[sub_resource type="Resource" id="Resource_sv6t6"]
 script = ExtResource("13_xe3hh")
-address = 255686
+address = 311833
 purpose = 1
-building_name = "Cat Home #255686"
+building_name = "Cat Home #311833"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_uccw5"]
+[sub_resource type="Resource" id="Resource_vs87s"]
 script = ExtResource("13_xe3hh")
-address = 364410
+address = 246228
 purpose = 1
-building_name = "Cat Home #364410"
+building_name = "Cat Home #246228"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_prkx5"]
+[sub_resource type="Resource" id="Resource_u2nc6"]
 script = ExtResource("13_xe3hh")
-address = 166736
+address = 862895
 purpose = 1
-building_name = "Cat Home #166736"
+building_name = "Cat Home #862895"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
-[sub_resource type="Resource" id="Resource_yjjmw"]
+[sub_resource type="Resource" id="Resource_0akr6"]
 script = ExtResource("13_xe3hh")
-address = 550597
+address = 552366
 purpose = 1
-building_name = "Cat Home #550597"
+building_name = "Cat Home #552366"
 metadata/_custom_type_script = "uid://bjssiakt2chbg"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_opqd1"]

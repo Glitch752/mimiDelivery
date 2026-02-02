@@ -8,11 +8,11 @@ const ACCEL = 1800.0
 @export var tasks_panel: TasksPanel
 @export var metro_map: MetroMap
 
-var in_intro: bool = true
+var disabled: bool = true
 
 
 func _physics_process(delta: float) -> void:
-    if in_intro:
+    if disabled:
         return
     
     var directionX := Input.get_axis("left","right")
@@ -68,7 +68,10 @@ func open_minigame(minigame: PackedScene):
     if $%MinigameContainer.get_child_count() > 0:
         return
     
+    disabled = true
     var scene = minigame.instantiate()
+    await get_tree().create_timer(0.01).timeout
     $%MinigameContainer.add_child(scene)
     await scene.finish
+    disabled = false
     scene.queue_free()

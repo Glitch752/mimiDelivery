@@ -126,7 +126,6 @@ func lose() -> void:
 
 func _process(delta: float) -> void:
     var playerPos = building_grid.local_to_map(building_grid.to_local(player.global_position))
-    print(playerPos)
     for i in range(len(tasks)):
         var task = tasks[i]
         var taskPos = task.pos

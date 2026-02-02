@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://7f5xtijfqwrk"]
+
+[ext_resource type="Texture2D" uid="uid://bqdbu8rsf4acf" path="res://art/durian.png" id="1_1ay4c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1ay4c"]
+radius = 16.0
+height = 42.0
+
+[node name="DroppedDurian" type="RigidBody2D" unique_id=324078410 groups=["durian"]]
+process_mode = 3
+disable_mode = 2
+
+[node name="Durian" type="Sprite2D" parent="." unique_id=424135639]
+texture = ExtResource("1_1ay4c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=804003577]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1ay4c")

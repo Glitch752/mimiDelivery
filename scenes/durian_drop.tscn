@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://ddc235cop174a"]
+
+[ext_resource type="Script" uid="uid://bovm5pyemmbon" path="res://scripts/durian_drop.gd" id="1_bdrpi"]
+[ext_resource type="PackedScene" uid="uid://7f5xtijfqwrk" path="res://scenes/dropped_durian.tscn" id="2_lw1w2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdrpi"]
+size = Vector2(260, 20)
+
+[node name="DurianDrop" type="Control" unique_id=1661526957 node_paths=PackedStringArray("panel", "bucket", "bucket_area", "floor", "progress_bar", "timer", "durian_timer")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bdrpi")
+panel = NodePath("Panel")
+bucket = NodePath("Bucket")
+bucket_area = NodePath("Bucket/BucketArea")
+floor = NodePath("Floor")
+durian_scene = ExtResource("2_lw1w2")
+progress_bar = NodePath("ProgressBar")
+timer = NodePath("Timer")
+durian_timer = NodePath("DurianTimer")
+
+[node name="Panel" type="Panel" parent="." unique_id=1617369577]
+layout_mode = 0
+offset_left = -129.0
+offset_top = -80.0
+offset_right = 131.0
+offset_bottom = 80.0
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2146482393]
+layout_mode = 0
+offset_left = -129.0
+offset_top = -88.0
+offset_right = 130.0
+offset_bottom = -81.0
+max_value = 5.0
+value = 5.0
+show_percentage = false
+
+[node name="Bucket" type="Polygon2D" parent="." unique_id=300695407]
+position = Vector2(0, 65)
+color = Color(0.38, 0.19601668, 0.064600006, 1)
+polygon = PackedVector2Array(-15, -10, 15, -10, 10, 10, -10, 10)
+
+[node name="BucketArea" type="Area2D" parent="Bucket" unique_id=1918109896]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket/BucketArea" unique_id=126911434]
+polygon = PackedVector2Array(-15, -10, 15, -10, 10, 10, -10, 10)
+
+[node name="Floor" type="Area2D" parent="." unique_id=420317317]
+position = Vector2(0, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1402533734]
+position = Vector2(1, 27)
+shape = SubResource("RectangleShape2D_bdrpi")
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=75508999]
+position = Vector2(0, 65)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls" unique_id=1350443436]
+polygon = PackedVector2Array(-130, 36, -129, 17, -129, -145, 131, -145, 131, 23, 140, 23, 139, -153, -139, -153, -139, 17)
+
+[node name="Timer" type="Timer" parent="." unique_id=345975007]
+wait_time = 5.0
+
+[node name="DurianTimer" type="Timer" parent="." unique_id=597588074]
