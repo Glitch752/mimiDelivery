@@ -487,6 +487,9 @@ tile_set = SubResource("TileSet_qifjx")
 script = ExtResource("3_faw0r")
 building_grid = NodePath("../BuildingGrid")
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RoadGrid" unique_id=1300755948]
+polygon = PackedVector2Array(-180.5, -213.5, 212, -213, 212, 212.5, -180.5, 212, -180, -213, -212, 232, 299.5, 233.5, 237, -267, -202.5, -272)
+
 [node name="BuildingGrid" type="TileMapLayer" parent="." unique_id=791929155]
 texture_filter = 1
 position = Vector2(32, 32)
