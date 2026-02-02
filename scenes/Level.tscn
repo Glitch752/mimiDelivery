@@ -628,6 +628,9 @@ buildings = Dictionary[Variant, Array]({
 z_as_relative = false
 position = Vector2(-5, 34)
 
+[node name="MinigameContainer" parent="Mimi/Player/Camera2D/CanvasLayer/UIOverlay" parent_id_path=PackedInt32Array(831696364, 1291501507) index="5" unique_id=1729124971]
+mouse_filter = 2
+
 [node name="MetroMap" parent="Mimi/Player/Camera2D/CanvasLayer/UIOverlay" parent_id_path=PackedInt32Array(831696364, 1291501507) index="6" unique_id=94377571 node_paths=PackedStringArray("building_grid")]
 building_grid = NodePath("../../../../../../BuildingGrid")
 
