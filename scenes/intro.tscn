@@ -2,6 +2,17 @@
 
 [ext_resource type="Script" uid="uid://behesbyjhese8" path="res://scripts/intro.gd" id="1_ioskq"]
 [ext_resource type="Resource" uid="uid://ddf7fcxvrcfa8" path="res://dialogues/hello_dialogue.tres" id="2_yjqpq"]
+[ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="3_4bx60"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bx60"]
+bg_color = Color(0.6, 0.6, 0.6, 0.101960786)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_color = Color(0, 0, 0, 0.43137255)
+shadow_size = 1
+shadow_offset = Vector2(7.34, 6.34)
 
 [node name="Intro" type="Control" unique_id=1368636052 node_paths=PackedStringArray("speaker_label", "speach_label", "next_button")]
 layout_mode = 3
@@ -24,18 +35,21 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -300.0
+offset_top = -117.0
+offset_right = 300.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4bx60")
 
 [node name="SpeakerLabel" type="Label" parent="Panel" unique_id=2023340929]
 layout_mode = 0
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 45.0
-offset_bottom = 28.0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 53.0
+offset_bottom = 35.0
+theme_override_fonts/font = ExtResource("3_4bx60")
 text = "Mimi"
 
 [node name="SpeachLabel" type="Label" parent="Panel" unique_id=158535227]
@@ -52,6 +66,7 @@ offset_right = 275.0
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_4bx60")
 text = "Hi. I am Mimi. This is a really really really really really really really really really really really really really really really really long dialogue."
 horizontal_alignment = 1
 vertical_alignment = 1

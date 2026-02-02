@@ -18,7 +18,7 @@ func _ready() -> void:
 
 
 func _draw() -> void:
-    draw_rect(Rect2(Vector2.ZERO, size), Color.WHITE)
+    draw_rect(Rect2(Vector2.ZERO, size), Color(1,1,1,0.3))
     
     for i in MetroLines.LineColor.COUNT:
         var line: MetroLines.LineColor = i as MetroLines.LineColor
