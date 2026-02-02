@@ -30,7 +30,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     var pressed = Input.is_action_just_pressed(catchString)
     if pressed and blahajCooked:
-        InventoryItems.blahajs += 1
+        InventoryItems.gain_item(preload("res://items/blahaj.tres"), 1)
         finish.emit()
     elif pressed:
         var newWaitTime = $Timer.time_left-1

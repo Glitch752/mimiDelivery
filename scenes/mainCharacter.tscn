@@ -8,8 +8,9 @@
 [ext_resource type="Script" uid="uid://14ltq5hvuwfu" path="res://scripts/show_in_game.gd" id="5_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
 [ext_resource type="PackedScene" uid="uid://dx2pp7a303jmf" path="res://scenes/intro.tscn" id="7_x5162"]
+[ext_resource type="Script" uid="uid://bjpwkbtnvtmgi" path="res://scripts/inventory.gd" id="9_yxaod"]
+[ext_resource type="PackedScene" uid="uid://bsf0eluodrk1p" path="res://scenes/inventory_row.tscn" id="10_xstxl"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="10_yxaod"]
-[ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="11_yxaod"]
 [ext_resource type="PackedScene" uid="uid://bsdah1ymglwoy" path="res://scenes/metro_map.tscn" id="13_wftgc"]
 
 [sub_resource type="Gradient" id="Gradient_kwwav"]
@@ -65,14 +66,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gff5m"]
 size = Vector2(5, 5)
-
-[sub_resource type="GDScript" id="GDScript_yxaod"]
-script/source = "extends Control
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    $HBoxContainer/BlahajCount.text = str(InventoryItems.blahajs)
-"
 
 [sub_resource type="GDScript" id="GDScript_m4k3q"]
 script/source = "extends ColorRect
@@ -151,7 +144,7 @@ player = NodePath("../../../..")
 tasks_arrow = NodePath("../TasksPanel/TasksArrow")
 time_arrow = NodePath("../TimeDisplay/TimeArrow")
 
-[node name="Inventory" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=322861878]
+[node name="Inventory" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=322861878 node_paths=PackedStringArray("row_holder")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -159,9 +152,11 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-script = SubResource("GDScript_yxaod")
+script = ExtResource("9_yxaod")
+item_row_scene = ExtResource("10_xstxl")
+row_holder = NodePath("RowHolder")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory" unique_id=1226117837]
+[node name="RowHolder" type="VBoxContainer" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory" unique_id=846588557]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -2.3500001
@@ -169,23 +164,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.6750001
 offset_left = -17.999992
-offset_top = 247.0
+offset_top = 300.0
 offset_right = 7.0
-offset_bottom = 264.0
+offset_bottom = 318.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BlahajLabel" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=1892657558]
-layout_mode = 2
-text = "Blåhajs"
-
-[node name="TextureRect" type="TextureRect" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=380057622]
-layout_mode = 2
-texture = ExtResource("11_yxaod")
-
-[node name="BlahajCount" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=2071857395]
-layout_mode = 2
-text = "0"
 
 [node name="MinigameContainer" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1729124971]
 unique_name_in_owner = true

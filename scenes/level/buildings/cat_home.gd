@@ -32,6 +32,6 @@ func _on_body_entered_interact(body: Node) -> void:
             var real_data: BuildingData
             real_data = MapData.building_data[get_tile_position()]
             if task.destination == real_data.building_name:
-                if InventoryItems.blahajs >= task.quantity:
-                    InventoryItems.blahajs -= task.quantity
+                if InventoryItems.has_item(task.item_req, task.quantity):
+                    InventoryItems.gain_item(task.item_req, -task.quantity)
                     tasks_panel.remove_task(task)
