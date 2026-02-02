@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b725ivibl4k88" path="res://art/mimi/left.png" id="3_jaax5"]
 [ext_resource type="PackedScene" uid="uid://c6isidgrp4hl7" path="res://scenes/time_display.tscn" id="4_gff5m"]
 [ext_resource type="Texture2D" uid="uid://bs12ci2q1u0gt" path="res://art/mimi/up.png" id="4_jaax5"]
-[ext_resource type="Script" path="res://scripts/show_in_game.gd" id="5_jaax5"]
+[ext_resource type="Script" uid="uid://14ltq5hvuwfu" path="res://scripts/show_in_game.gd" id="5_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
 [ext_resource type="PackedScene" uid="uid://dx2pp7a303jmf" path="res://scenes/intro.tscn" id="7_x5162"]
 [ext_resource type="Script" uid="uid://bjpwkbtnvtmgi" path="res://scripts/inventory.gd" id="9_yxaod"]
