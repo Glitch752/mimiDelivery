@@ -19,12 +19,15 @@ func _ready() -> void:
     
     await TimeManager.time_changed
     
-    add_task(generate_task())
-    add_task(generate_task())
-    add_task(generate_task())
-    add_task(generate_task())
+    generate_daily_tasks()
     
+    TimeManager.day_changed.connect(generate_daily_tasks)
     TimeManager.time_changed.connect(check_tasks_timed_out)
+
+
+func generate_daily_tasks() -> void:
+    for i in range(TimeManager.week * 8 + TimeManager.day - 4):
+        add_task(generate_task())
 
 
 func generate_task() -> Task:
@@ -124,6 +127,7 @@ func lose() -> void:
     lose_screen.show()
     get_tree().paused = true
 
+
 func _process(delta: float) -> void:
     var playerPos = building_grid.local_to_map(building_grid.to_local(player.global_position))
     for i in range(len(tasks)):
@@ -139,5 +143,3 @@ func _process(delta: float) -> void:
         elif taskPos.x > playerPos.x:
             dirStr += "E"
         task_rows[i].direction_label.text = dirStr
-        
-        
