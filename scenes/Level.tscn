@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://bjssiakt2chbg" path="res://scenes/level/buildings/data/building_data_destination.gd" id="13_xe3hh"]
 [ext_resource type="Script" uid="uid://ltpgw47uk5lo" path="res://scripts/minimap.gd" id="15_p6oy6"]
 [ext_resource type="Texture2D" uid="uid://3qybvbjv7k5n" path="res://art/minimap_frame.png" id="16_xyj84"]
+[ext_resource type="AudioStream" uid="uid://78iscfm8kius" path="res://Sounds/Mimo's Hell.ogg" id="19_wsd7d"]
 
 [sub_resource type="GDScript" id="GDScript_m0xki"]
 script/source = "@tool
@@ -676,5 +677,12 @@ offset_bottom = 200.0
 size_flags_vertical = 4
 texture = ExtResource("13_p6oy6")
 stretch_mode = 3
+
+[node name="Mimo\'sHell" type="AudioStreamPlayer2D" parent="." unique_id=789123634]
+visible = false
+position = Vector2(923, 602)
+stream = ExtResource("19_wsd7d")
+volume_db = -23.373
+autoplay = true
 
 [editable path="Mimi"]

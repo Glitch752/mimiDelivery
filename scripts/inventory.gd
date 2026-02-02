@@ -17,6 +17,7 @@ func update_item_count(item: Item) -> void:
     if InventoryItems.items[item] == 0:
         if item in item_rows:
             item_rows[item].queue_free()
+            item_rows.erase(item)
     elif item not in item_rows:
         var item_row: InventoryRow = item_row_scene.instantiate()
         item_row.name_label.text = item.item_name
