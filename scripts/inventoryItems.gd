@@ -3,7 +3,8 @@ extends Node
 signal item_count_changed(item: Item)
 
 const ITEMS: Array[Item] = [
-    preload("res://items/blahaj.tres")
+    preload("res://items/blahaj.tres"),
+    preload("res://items/durian.tres"),
 ]
 
 var items: Dictionary[Item, int]

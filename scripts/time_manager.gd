@@ -92,6 +92,7 @@ func _next_hour() -> void:
 # Increments the day number
 # Increments other time units as necessary
 func _next_day() -> void:
+    day_changed.emit()
     day += 1
     
     if day == 7:

@@ -46,10 +46,7 @@ func generate_daily_tasks() -> void:
 
 
 func generate_task() -> Task:
-    var shops: Array = MapData.buildings[MapData.BuildingPurpose.SHOP]
-    var shop_pos: Vector2i = shops.pick_random()
-    var shop_data: BuildingDataShop = MapData.building_data[shop_pos]
-    var item: Item = shop_data.items.pick_random()
+    var item: Item = InventoryItems.ITEMS.pick_random()
     
     var destinations: Array
     destinations = MapData.buildings[MapData.BuildingPurpose.DESTINATION]
