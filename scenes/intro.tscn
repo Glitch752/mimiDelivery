@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://behesbyjhese8" path="res://scripts/intro.gd" id="1_ioskq"]
 [ext_resource type="Resource" uid="uid://ddf7fcxvrcfa8" path="res://dialogues/hello_dialogue.tres" id="2_yjqpq"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="3_4bx60"]
+[ext_resource type="Texture2D" uid="uid://ckd3mu10naw8y" path="res://art/mimiicon-1.png.png" id="4_wfs7u"]
+[ext_resource type="Texture2D" uid="uid://cy6tl0bpm0dcd" path="res://art/Mimo-1.png.png" id="5_es01l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4bx60"]
 bg_color = Color(0.6, 0.6, 0.6, 0.101960786)
@@ -87,3 +89,19 @@ offset_bottom = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "^"
+
+[node name="mimiHead" type="TextureRect" parent="Panel" unique_id=2001626172]
+visible = false
+layout_mode = 0
+offset_left = 46.0
+offset_right = 86.0
+offset_bottom = 40.0
+texture = ExtResource("4_wfs7u")
+
+[node name="mimoHead" type="TextureRect" parent="Panel" unique_id=2065152113]
+visible = false
+layout_mode = 0
+offset_left = 48.0
+offset_right = 88.0
+offset_bottom = 40.0
+texture = ExtResource("5_es01l")
