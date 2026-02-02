@@ -27,16 +27,11 @@ func get_building_data(id: int) -> BuildingData:
 
 func _on_body_entered_interact(body: Node) -> void:
     if body.is_in_group("player"):
-        print("in group")
         var tasks_panel: TasksPanel = body.tasks_panel
         for task in tasks_panel.tasks:
-            print(task.destination)
-            print("Name: ", building_data.building_name)
             var real_data: BuildingData
             real_data = MapData.building_data[get_tile_position()]
             if task.destination == real_data.building_name:
-                print("Destination matches")
                 if InventoryItems.blahajs >= task.quantity:
-                    print("Sufficient funds")
                     InventoryItems.blahajs -= task.quantity
                     tasks_panel.remove_task(task)
