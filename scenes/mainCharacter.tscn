@@ -89,12 +89,13 @@ func _process(delta: float) -> void:
 metadata/_edit_horizontal_guides_ = [541.0]
 metadata/_edit_vertical_guides_ = [963.0]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 node_paths=PackedStringArray("particles", "metro_map") groups=["player"]]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 node_paths=PackedStringArray("particles", "tasks_panel", "metro_map") groups=["player"]]
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_0n537")
 particles = NodePath("GPUParticles2D")
+tasks_panel = NodePath("Camera2D/CanvasLayer/UIOverlay/TasksPanel")
 metro_map = NodePath("Camera2D/CanvasLayer/UIOverlay/MetroMap")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Player" unique_id=1934129415]

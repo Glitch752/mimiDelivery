@@ -5,6 +5,7 @@ const SPEED = 50.0
 const ACCEL = 1800.0
 
 @export var particles: GPUParticles2D
+@export var tasks_panel: TasksPanel
 @export var metro_map: MetroMap
 
 var in_intro: bool = true
