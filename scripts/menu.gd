@@ -21,6 +21,7 @@ func _on_settings_pressed() -> void:
 func _on_start_pressed() -> void:
     print("start pressed")
     get_tree().change_scene_to_file("res://scenes/Level.tscn")
+    InventoryItems.items[preload("res://items/blahaj.tres")] = 0
     pass # Replace with function body.
 
 

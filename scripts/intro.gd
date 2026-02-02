@@ -28,14 +28,19 @@ func _next_dialogue() -> void:
         _display_dialogue()
     else:
         hide()
-        player.in_intro = false
+        player.disabled = false
         TimeManager.start_time()
 
 
 func _display_dialogue() -> void:
     speaker_label.text = current_dialogue.speaker
     speach_label.text = current_dialogue.speach
-    
+    if speaker_label.text == "Mimi":
+        $Panel/mimiHead.visible = true
+        $Panel/mimoHead.visible = false
+    if speaker_label.text == "Mimo":
+        $Panel/mimiHead.visible = false
+        $Panel/mimoHead.visible = true
     tasks_arrow.hide()
     time_arrow.hide()
     

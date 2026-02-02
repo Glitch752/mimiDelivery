@@ -30,12 +30,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
     var pressed = Input.is_action_just_pressed(catchString)
     if pressed and blahajCooked:
-        InventoryItems.blahajs += 1
+        $BlahajCooked.play()
+        await $BlahajCooked.finished
+        InventoryItems.gain_item(preload("res://items/blahaj.tres"), 1)
         finish.emit()
+        queue_free()
     elif pressed:
         var newWaitTime = $Timer.time_left-1
         if newWaitTime < 0:
             finish.emit()
+            queue_free()
             return
         
         $Timer.stop()
@@ -55,4 +59,12 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-    visible = false
+    finish.emit()
+    queue_free()
+
+func _on_change_dir_area_body_entered(body: Node2D) -> void:
+    $BlahajChange.play()
+
+
+func _on_change_dir_area_2_body_entered(body: Node2D) -> void:
+    $BlahajChange.play()

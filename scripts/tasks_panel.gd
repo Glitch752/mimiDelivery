@@ -5,6 +5,9 @@ extends PanelContainer
 @export var task_label_settings: LabelSettings
 @export var tasks_list: GridContainer
 @export var lose_screen: ColorRect
+@export var building_grid: TileMapLayer
+@export var player: Node2D
+@export var taskFont: Font
 
 ## The tasks
 var tasks: Array[Task]
@@ -13,23 +16,37 @@ var task_rows: Array[TaskRow]
 
 
 func _ready() -> void:
+    _setup_panel_style()
     lose_screen.hide()
-    
+    task_label_settings.font_color = Color(1,1,1,1)
+    task_label_settings.font = taskFont 
     await TimeManager.time_changed
     
-    add_task(generate_task())
-    add_task(generate_task())
-    add_task(generate_task())
-    add_task(generate_task())
+    generate_daily_tasks()
     
+    TimeManager.day_changed.connect(generate_daily_tasks)
     TimeManager.time_changed.connect(check_tasks_timed_out)
+
+func _setup_panel_style() -> void:
+    var style = StyleBoxFlat.new()
+    style.bg_color = Color(0.12,0.15,0.18,0.82)
+    style.set_corner_radius_all(14)
+    style.set_border_width_all(1)
+    style.border_color = Color(1,1,1,0.1)
+    style.shadow_color = Color(0,0,0,0.4)
+    style.shadow_size = 10
+    style.shadow_offset = Vector2(0,4)
+    style.set_content_margin_all(20)
+    style.anti_aliasing = true
+    add_theme_stylebox_override("panel",style)
+
+func generate_daily_tasks() -> void:
+    for i in range(TimeManager.week * 8 + TimeManager.day - 4):
+        add_task(generate_task())
 
 
 func generate_task() -> Task:
-    var shops: Array = MapData.buildings[MapData.BuildingPurpose.SHOP]
-    var shop_pos: Vector2i = shops.pick_random()
-    var shop_data: BuildingDataShop = MapData.building_data[shop_pos]
-    var item: Item = shop_data.items.pick_random()
+    var item: Item = InventoryItems.ITEMS.pick_random()
     
     var destinations: Array
     destinations = MapData.buildings[MapData.BuildingPurpose.DESTINATION]
@@ -37,7 +54,7 @@ func generate_task() -> Task:
     var destination_data: BuildingData
     destination_data = MapData.building_data[destination_pos]
     
-    return Task.new(item, 1, destination_data.building_name, 360)
+    return Task.new(item, 1, destination_data.building_name, randi_range(1000,1500), destination_pos)
 
 
 ## Adds a task to tasks and displays it
@@ -54,16 +71,19 @@ func add_task(task: Task) -> void:
     task_row.item_label = Label.new()
     task_row.item_label.label_settings = task_label_settings
     task_row.item_label.text = task.item_req.item_name
+    task_row.item_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.item_label)
     
     task_row.quantity_label = Label.new()
     task_row.quantity_label.label_settings = task_label_settings
     task_row.quantity_label.text = str(task.quantity)
+    task_row.quantity_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.quantity_label)
     
     task_row.destination_label = Label.new()
     task_row.destination_label.label_settings = task_label_settings
     task_row.destination_label.text = task.destination
+    task_row.destination_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.destination_label)
     
     task_row.time_label = Label.new()
@@ -74,7 +94,14 @@ func add_task(task: Task) -> void:
             task.due_hour,
             task.due_minute
     ]
+    task_row.time_label.add_theme_color_override("font_color", Color.WHITE)
     tasks_list.add_child(task_row.time_label)
+
+    task_row.direction_label = Label.new()
+    task_row.direction_label.label_settings = task_label_settings
+    task_row.direction_label.text = "N"
+    task_row.direction_label.add_theme_color_override("font_color", Color.WHITE)
+    tasks_list.add_child(task_row.direction_label)
 
 
 func remove_task(task: Task) -> void:
@@ -88,6 +115,7 @@ func remove_task(task: Task) -> void:
     task_row.item_label.queue_free()
     task_row.quantity_label.queue_free()
     task_row.time_label.queue_free()
+    task_row.direction_label.queue_free()
 
 
 func check_tasks_timed_out() -> void:
@@ -115,3 +143,20 @@ func check_tasks_timed_out() -> void:
 func lose() -> void:
     lose_screen.show()
     get_tree().paused = true
+
+
+func _process(delta: float) -> void:
+    var playerPos = building_grid.local_to_map(building_grid.to_local(player.global_position))
+    for i in range(len(tasks)):
+        var task = tasks[i]
+        var taskPos = task.pos
+        var dirStr = ""
+        if taskPos.y < playerPos.y:
+            dirStr += "N"
+        elif taskPos.y > playerPos.y:
+            dirStr += "S"
+        if taskPos.x < playerPos.x:
+            dirStr += "W"
+        elif taskPos.x > playerPos.x:
+            dirStr += "E"
+        task_rows[i].direction_label.text = dirStr

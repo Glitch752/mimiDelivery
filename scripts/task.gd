@@ -5,6 +5,7 @@ extends Resource
 @export var quantity: int = 1
 @export var destination: String
 @export var time_to_complete: int = 60
+@export var pos: Vector2i
 
 var due_minute: int
 var due_hour: int
@@ -13,16 +14,23 @@ var due_week: int
 
 
 func _init(p_item_req: Item = null, p_quantity: int = 1,
-        p_destination: String = "", p_time_to_complete: int = 60) -> void:
+        p_destination: String = "", p_time_to_complete: int = 60, p_pos: Vector2i = Vector2i.ZERO) -> void:
     item_req = p_item_req
     quantity = p_quantity
     destination = p_destination
     time_to_complete = p_time_to_complete
-
+    pos = p_pos
 
 func calculate_due_time() -> void:
-    due_minute = time_to_complete % 60
-    var time_left: int = roundi((time_to_complete - due_minute) / 60.0)
+    var time_plus_current_date: int = (time_to_complete 
+            + TimeManager.minute
+            + TimeManager.hour * 60
+            + TimeManager.day * 1440
+            + TimeManager.week * 10080
+            )
+    
+    due_minute = time_plus_current_date % 60
+    var time_left: int = roundi((time_plus_current_date - due_minute) / 60.0)
     
     due_hour = time_left % 24
     time_left = roundi((time_left - due_hour) / 24.0)
@@ -31,8 +39,3 @@ func calculate_due_time() -> void:
     time_left = roundi((time_left - due_day) / 7.0)
     
     due_week = time_left
-    
-    due_minute += TimeManager.minute
-    due_hour += TimeManager.hour
-    due_day += TimeManager.day
-    due_week += TimeManager.week

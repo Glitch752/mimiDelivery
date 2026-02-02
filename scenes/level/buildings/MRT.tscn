@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://e8vn41dpp5hh"]
 
 [ext_resource type="PackedScene" uid="uid://ckb1p54uwlcj4" path="res://scenes/level/buildings/BaseBuilding.tscn" id="1_m5dfk"]
+[ext_resource type="Script" uid="uid://b3ubcpeo4qgtb" path="res://scenes/level/buildings/mrt.gd" id="2_cr4g7"]
 [ext_resource type="Script" uid="uid://c8s11dcpw0xmb" path="res://scripts/util/hot_reload_shader.gd" id="2_fous8"]
 [ext_resource type="Script" uid="uid://b6bcl1slrhxf2" path="res://scenes/level/buildings/data/building_data.gd" id="2_x3us6"]
 [ext_resource type="Shader" uid="uid://blfhtp1bxr0ky" path="res://scripts/graphics/land.gdshader" id="3_m5dfk"]
@@ -25,6 +26,7 @@ size = Vector2(14, 12)
 
 [node name="BaseBuilding" unique_id=583408200 instance=ExtResource("1_m5dfk")]
 z_index = 0
+script = ExtResource("2_cr4g7")
 building_data = SubResource("Resource_cr4g7")
 
 [node name="CollisionShape2D" parent="HideArea" parent_id_path=PackedInt32Array(1367318042) index="0" unique_id=1992347408]

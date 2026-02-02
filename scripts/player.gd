@@ -5,12 +5,14 @@ const SPEED = 50.0
 const ACCEL = 1800.0
 
 @export var particles: GPUParticles2D
+@export var tasks_panel: TasksPanel
+@export var metro_map: MetroMap
 
-var in_intro: bool = true
+var disabled: bool = true
 
 
 func _physics_process(delta: float) -> void:
-    if in_intro:
+    if disabled:
         return
     
     var directionX := Input.get_axis("left","right")
@@ -27,6 +29,12 @@ func _physics_process(delta: float) -> void:
         velocity.y = move_toward(velocity.y, directionY * SPEED, ACCEL * delta)
     else:
         velocity.y = move_toward(velocity.y, 0, ACCEL * delta)
+    
+    if directionY or directionX:
+        if not $Footstep.playing:
+            $Footstep.play()
+    else:
+        $Footstep.stop()
     
     var time = Time.get_ticks_msec() / 1000.0
     $Sprite2D.rotation = sin(time * 20.0) * (velocity.length() / SPEED) * deg_to_rad(5)
@@ -70,7 +78,10 @@ func _open_minigame(minigame: PackedScene):
     if $%MinigameContainer.get_child_count() > 0:
         return
     
+    disabled = true
     var scene = minigame.instantiate()
+    await get_tree().create_timer(0.01).timeout
     $%MinigameContainer.add_child(scene)
     await scene.finish
+    disabled = false
     scene.queue_free()

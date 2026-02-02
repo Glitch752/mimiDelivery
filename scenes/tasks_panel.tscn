@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dloew7jw5ysj0"]
 
 [ext_resource type="Script" uid="uid://di2via47btv1v" path="res://scripts/tasks_panel.gd" id="1_xwvrl"]
+[ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="2_3mbat"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pplnk"]
 border_width_left = 4
@@ -15,11 +16,9 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3mbat"]
 font_size = 24
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_pplnk"]
 font_size = 18
-font_color = Color(0, 0, 0, 1)
 
 [node name="TasksPanel" type="PanelContainer" unique_id=463488195 node_paths=PackedStringArray("tasks_list")]
 anchors_preset = 4
@@ -47,34 +46,53 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=138198003]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3mbat")
 text = "Tasks:"
 label_settings = SubResource("LabelSettings_3mbat")
 
 [node name="TasksList" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=932327377]
 layout_mode = 2
 theme_override_constants/h_separation = 8
-columns = 4
+columns = 5
 
 [node name="ItemReq" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=563775937]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3mbat")
 text = "Item"
 label_settings = SubResource("LabelSettings_pplnk")
 
 [node name="Quantity" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=1971185563]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3mbat")
 text = "Quantity"
 label_settings = SubResource("LabelSettings_pplnk")
 
 [node name="Destination" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=2121593186]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3mbat")
 text = "Destination"
 label_settings = SubResource("LabelSettings_pplnk")
 
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=29282459]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3mbat")
 text = "Deliver By"
+label_settings = SubResource("LabelSettings_pplnk")
+
+[node name="Direction" type="Label" parent="MarginContainer/VBoxContainer/TasksList" unique_id=724378670]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_3mbat")
+text = "Direction"
 label_settings = SubResource("LabelSettings_pplnk")

@@ -5,10 +5,81 @@
 [ext_resource type="Texture2D" uid="uid://c2l5bm5sk6sdn" path="res://images/slide1.png" id="1_xdvgc"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="2_upctu"]
 [ext_resource type="Script" uid="uid://bc3euugkqwqxl" path="res://scripts/settings.gd" id="3_o0tnf"]
+[ext_resource type="AudioStream" uid="uid://dl30vil15mhio" path="res://Sounds/Mimi's Heaven.ogg" id="5_jmdev"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_upctu"]
 texture = ExtResource("1_xdvgc")
 modulate_color = Color(0.65012825, 0.6501283, 0.65012825, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xdvgc"]
+bg_color = Color(0.85755926, 0.84526587, 0.8350678, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.21230498, 0.2123048, 0.21230483, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1.275, 1.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_upctu"]
+bg_color = Color(0.23921569, 0.22352941, 0.21176471, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.21230498, 0.2123048, 0.21230483, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1.275, 1.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11y2r"]
+bg_color = Color(0.5019608, 0.48235294, 0.45882353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.21230498, 0.2123048, 0.21230483, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1.275, 1.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0tnf"]
+bg_color = Color(0.23921569, 0.22352941, 0.21176471, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.21230498, 0.2123048, 0.21230483, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1.275, 1.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmdev"]
+bg_color = Color(0.5019608, 0.48235294, 0.45882353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.21230498, 0.2123048, 0.21230483, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1.275, 1.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b6cxs"]
+bg_color = Color(0.23921569, 0.22352941, 0.21176471, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.21230498, 0.2123048, 0.21230483, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1.275, 1.585)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aaywf"]
+bg_color = Color(0.5019608, 0.48235294, 0.45882353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.21230498, 0.2123048, 0.21230483, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(1.275, 1.585)
 
 [node name="MainMenu" type="Control" unique_id=1872250832]
 layout_mode = 3
@@ -129,17 +200,45 @@ theme_override_constants/separation = 18
 
 [node name="Button" type="Button" parent="mainMenu/VBoxContainer" unique_id=1846326836]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_upctu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_upctu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_11y2r")
 text = "Play"
 
 [node name="Button2" type="Button" parent="mainMenu/VBoxContainer" unique_id=240220314]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_upctu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o0tnf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jmdev")
 text = "Settings
 "
 
 [node name="Button3" type="Button" parent="mainMenu/VBoxContainer" unique_id=1088991998]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_upctu")
+theme_override_styles/normal = SubResource("StyleBoxFlat_xdvgc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_b6cxs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_aaywf")
 text = "Exit
 "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=60730033]
+stream = ExtResource("5_jmdev")
+autoplay = true
 
 [connection signal="value_changed" from="settings/VBoxContainer/Volume" to="settings" method="_on_volume_value_changed"]
 [connection signal="item_selected" from="settings/VBoxContainer/OptionButton" to="settings" method="_on_option_button_item_selected"]

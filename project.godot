@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Mimi Delivery"
+config/version="1.0.0"
 run/main_scene="uid://pm7u4otuwp1v"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://chn43swb8kyll"
 
 [autoload]
 
@@ -37,6 +38,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 [global_group]
 
 player=""
+durian=""
 
 [input]
 
@@ -116,3 +118,4 @@ hide_metro_map={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.050980393, 0.46666667, 0.6666667, 1)

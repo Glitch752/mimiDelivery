@@ -4,6 +4,9 @@ extends Node
 ## Emitted every time the time changes
 signal time_changed()
 
+## Emitted every time a new day starts
+signal day_changed()
+
 ## How many seconds of real time is a minute of game time?
 const MINUTE_LENGTH: float = 1.0
 ## The day names
@@ -89,6 +92,7 @@ func _next_hour() -> void:
 # Increments the day number
 # Increments other time units as necessary
 func _next_day() -> void:
+    day_changed.emit()
     day += 1
     
     if day == 7:

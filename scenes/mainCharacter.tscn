@@ -8,8 +8,10 @@
 [ext_resource type="Script" uid="uid://14ltq5hvuwfu" path="res://scripts/show_in_game.gd" id="5_jaax5"]
 [ext_resource type="PackedScene" uid="uid://dloew7jw5ysj0" path="res://scenes/tasks_panel.tscn" id="5_nthm3"]
 [ext_resource type="PackedScene" uid="uid://dx2pp7a303jmf" path="res://scenes/intro.tscn" id="7_x5162"]
+[ext_resource type="Script" uid="uid://bjpwkbtnvtmgi" path="res://scripts/inventory.gd" id="9_yxaod"]
+[ext_resource type="PackedScene" uid="uid://bsf0eluodrk1p" path="res://scenes/inventory_row.tscn" id="10_xstxl"]
 [ext_resource type="FontFile" uid="uid://dxoh6dv0ovod5" path="res://fonts/Resoft.ttf" id="10_yxaod"]
-[ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="11_yxaod"]
+[ext_resource type="AudioStream" uid="uid://bpklwr4p7p2gp" path="res://Sounds/movementMimi.ogg" id="13_8gmqy"]
 [ext_resource type="PackedScene" uid="uid://bsdah1ymglwoy" path="res://scenes/metro_map.tscn" id="13_wftgc"]
 
 [sub_resource type="Gradient" id="Gradient_kwwav"]
@@ -70,31 +72,26 @@ size = Vector2(5, 5)
 script/source = "extends ColorRect
 
 func _init() -> void:
-    Engine.time_scale = 1.0
+    pass
 
 func _on_button_pressed() -> void:
+    print(\"go back\")
     get_tree().paused = false
     get_tree().change_scene_to_file(\"res://scenes/Menu.tscn\")
-"
-
-[sub_resource type="GDScript" id="GDScript_yxaod"]
-script/source = "extends Control
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    $HBoxContainer/BlahajCount.text = str(InventoryItems.blahajs)
 "
 
 [node name="Mimi" type="Node2D" unique_id=831696364]
 metadata/_edit_horizontal_guides_ = [541.0]
 metadata/_edit_vertical_guides_ = [963.0]
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 node_paths=PackedStringArray("particles") groups=["player"]]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1929506976 node_paths=PackedStringArray("particles", "tasks_panel", "metro_map") groups=["player"]]
 z_index = 1
 z_as_relative = false
 y_sort_enabled = true
 script = ExtResource("1_0n537")
 particles = NodePath("GPUParticles2D")
+tasks_panel = NodePath("Camera2D/CanvasLayer/UIOverlay/TasksPanel")
+metro_map = NodePath("Camera2D/CanvasLayer/UIOverlay/MetroMap")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Player" unique_id=1934129415]
 emitting = false
@@ -124,6 +121,17 @@ grow_vertical = 2
 
 [node name="TimeDisplay" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=108378729 node_paths=PackedStringArray("day_night_filter_parent") instance=ExtResource("4_gff5m")]
 layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = -150.0
+offset_top = -71.0
+offset_right = 150.0
+offset_bottom = 129.0
+grow_horizontal = 2
+grow_vertical = 1
 day_night_filter_parent = NodePath("../../../../..")
 
 [node name="TimeArrow" type="Line2D" parent="Player/Camera2D/CanvasLayer/UIOverlay/TimeDisplay" unique_id=377885905]
@@ -155,6 +163,48 @@ layout_mode = 1
 player = NodePath("../../../..")
 tasks_arrow = NodePath("../TasksPanel/TasksArrow")
 time_arrow = NodePath("../TimeDisplay/TimeArrow")
+
+[node name="Inventory" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=322861878 node_paths=PackedStringArray("row_holder")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+script = ExtResource("9_yxaod")
+item_row_scene = ExtResource("10_xstxl")
+row_holder = NodePath("RowHolder")
+
+[node name="RowHolder" type="VBoxContainer" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory" unique_id=846588557]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.3500001
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.6750001
+offset_left = -17.999992
+offset_top = 300.0
+offset_right = 7.0
+offset_bottom = 318.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MinigameContainer" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1729124971]
+unique_name_in_owner = true
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MetroMap" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=94377571 node_paths=PackedStringArray("player") instance=ExtResource("13_wftgc")]
+process_mode = 3
+visible = false
+layout_mode = 1
+player = NodePath("../../../..")
 
 [node name="LoseScreen" type="ColorRect" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1495757823]
 visible = false
@@ -188,64 +238,17 @@ theme_override_fonts/font = ExtResource("10_yxaod")
 theme_override_font_sizes/font_size = 100
 text = "You Lose!"
 
-[node name="Button" type="Button" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer" unique_id=1736762385]
+[node name="Button" type="Button" parent="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer" unique_id=655235521]
 process_mode = 3
 layout_mode = 2
-size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("10_yxaod")
-theme_override_font_sizes/font_size = 40
-text = "Main Menu
-"
+theme_override_font_sizes/font_size = 35
+action_mode = 0
+text = "Main Menu"
 
-[node name="Inventory" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=322861878]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-script = SubResource("GDScript_yxaod")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory" unique_id=1226117837]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -2.3500001
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 1.6750001
-offset_left = -17.999992
-offset_top = 247.0
-offset_right = 7.0
-offset_bottom = 264.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BlahajLabel" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=1892657558]
-layout_mode = 2
-text = "Blåhajs"
-
-[node name="TextureRect" type="TextureRect" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=380057622]
-layout_mode = 2
-texture = ExtResource("11_yxaod")
-
-[node name="BlahajCount" type="Label" parent="Player/Camera2D/CanvasLayer/UIOverlay/Inventory/HBoxContainer" unique_id=2071857395]
-layout_mode = 2
-text = "0"
-
-[node name="MinigameContainer" type="Control" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=1729124971]
-unique_name_in_owner = true
-process_mode = 3
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MetroMap" parent="Player/Camera2D/CanvasLayer/UIOverlay" unique_id=94377571 instance=ExtResource("13_wftgc")]
-process_mode = 3
-visible = false
-layout_mode = 1
+[node name="Footstep" type="AudioStreamPlayer2D" parent="Player" unique_id=641009070]
+position = Vector2(499, 1150)
+stream = ExtResource("13_8gmqy")
+volume_db = 11.556
 
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen/VBoxContainer/Button" to="Player/Camera2D/CanvasLayer/UIOverlay/LoseScreen" method="_on_button_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bsf0eluodrk1p"]
+
+[ext_resource type="Script" uid="uid://btks7yuuopwog" path="res://scripts/inventory_row.gd" id="1_1krog"]
+[ext_resource type="Texture2D" uid="uid://bwin84fqoeqdb" path="res://art/blahaj.png" id="1_xrh21"]
+
+[node name="InventoryRow" type="HBoxContainer" unique_id=712057012 node_paths=PackedStringArray("name_label", "texture_rect", "count_label")]
+script = ExtResource("1_1krog")
+name_label = NodePath("ItemName")
+texture_rect = NodePath("TextureRect")
+count_label = NodePath("ItemCount")
+
+[node name="ItemName" type="Label" parent="." unique_id=1873540836]
+layout_mode = 2
+text = "Blåhajs"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=920232177]
+layout_mode = 2
+texture = ExtResource("1_xrh21")
+
+[node name="ItemCount" type="Label" parent="." unique_id=582211755]
+layout_mode = 2
+text = "0"
